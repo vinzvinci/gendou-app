@@ -10,9 +10,7 @@
 <script>
 import Vue from 'vue'
 import { mapActions, mapState } from 'vuex'
-import { Button } from 'ant-design-vue'
-
-const GET_GITHUB_USER_API_URL = 'https://api.github.com/user/'
+import { Button, message } from 'ant-design-vue'
 
 export default Vue.extend({
   components: {
@@ -22,16 +20,19 @@ export default Vue.extend({
     isConnected: (state) => state.isConnected,
     githubUserName: (state) => state.githubUserName,
   }),
+  async mounted() {
+    await this.getTorusUserInfo()
+  },
   methods: {
     async connect() {
       await this.connectTorusWallet()
-      const verifierId = this.$store.state.userInfo.verifierId
-      const githubUserId = verifierId.split('github|')[1]
-      const url = GET_GITHUB_USER_API_URL + githubUserId
-      const res = await this.$axios.get(url)
-      this.$store.commit('setGitHubUserName', res.data.login)
+      if (this.githubUserName === '') {
+        this.$store.commit('setIsConnected', false)
+        await this.$torus.cleanUp()
+        message.error('Please connect with your GitHub account')
+      }
     },
-    ...mapActions(['connectTorusWallet']),
+    ...mapActions(['connectTorusWallet', 'getTorusUserInfo']),
   },
 })
 </script>
