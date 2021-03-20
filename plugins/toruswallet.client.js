@@ -9,7 +9,9 @@ const torusPlugin = (context, inject) => {
       await torus.login() // await torus.ethereum.enable()
       const web3 = new Web3(torus.provider)
       const userInfo = await torus.getUserInfo()
-      console.log(web3, userInfo)
+      const accounts = await web3.eth.getAccounts()
+
+      return { account: accounts[0], userInfo, web3 }
     },
   })
 }
