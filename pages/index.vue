@@ -3,6 +3,7 @@
     <div>
       <Logo />
       <h1 class="title">Hello gendou-app</h1>
+      <Connect />
     </div>
   </div>
 </template>
