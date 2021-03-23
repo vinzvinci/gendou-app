@@ -11,6 +11,7 @@
     "lint:style": "stylelint \"**/*.{vue,css}\" --ignore-path .gitignore",
     "lint": "yarn lint:js && yarn lint:style",
     "test": "jest",
+    "vercel-build": "yarn global add node-gyp",
     "prepare": "husky install"
   },
   "lint-staged": {
