@@ -1,0 +1,22 @@
+/* Whyte */
+@font-face {
+  font-family: 'Whyte';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/Whyte-Regular.otf') format('opentype');
+}
+
+/* Whyte Linktrap */
+@font-face {
+  font-family: 'Whytelnktrap';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../fonts/WhyteInktrap-Bold.otf') format('opentype');
+}
+
+html body {
+  font-family: 'Whyte', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
+  'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
