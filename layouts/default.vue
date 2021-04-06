@@ -15,6 +15,9 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+}
+
+html body {
   color: #0a0a0a;
 }
 
@@ -28,6 +31,10 @@ html {
 a {
   text-decoration: none;
   color: #0a0a0a;
+}
+
+p {
+  margin: 0;
 }
 
 .layout {
