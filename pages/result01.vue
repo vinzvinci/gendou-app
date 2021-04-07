@@ -73,7 +73,7 @@
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-    border: 1px solid #0a0a0a;
+    border: 1px solid #fff;
   }
 
   .next {
