@@ -1,11 +1,6 @@
 <template>
   <div class="container">
-    <header>
-      <img src="/image/header-logo.png" alt="logo" />
-      <div class="right-content">
-        <a href="/">QA</a>
-      </div>
-    </header>
+    <Header />
     <div class="content">
       <div class="information">
         <div class="message">
@@ -49,24 +44,6 @@
 <style lang="scss">
 .container {
   background: url('/image/pic02.png') center center;
-}
-
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 29px 0;
-  width: 100%;
-
-  img {
-    width: 116px;
-    height: 72px;
-  }
-
-  .right-content {
-    font-weight: 500;
-    font-size: 24px;
-  }
 }
 
 .content {
