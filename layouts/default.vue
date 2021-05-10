@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="layout">
     <Nuxt />
   </div>
 </template>
@@ -17,11 +17,34 @@ html {
   box-sizing: border-box;
 }
 
+html body {
+  color: #0a0a0a;
+}
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
   margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #0a0a0a;
+}
+
+p {
+  margin: 0;
+}
+
+.layout {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0 156px;
+  width: 100%;
+  max-width: 1440px;
+  min-width: 780px;
 }
 
 .button--green {
