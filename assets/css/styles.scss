@@ -65,39 +65,38 @@ $display-font-sizes-mb: (
 );
 
 .display-1 {
-  font-size: map-get($display-font-sizes, 1);
+  font-size: map-get($display-font-sizes, 1) !important;
 }
 .display-2 {
-  font-size: map-get($display-font-sizes, 2);
+  font-size: map-get($display-font-sizes, 2) !important;
 }
 .display-3 {
-  font-size: map-get($display-font-sizes, 3);
+  font-size: map-get($display-font-sizes, 3) !important;
 }
 .display-4 {
-  font-size: map-get($display-font-sizes, 4);
+  font-size: map-get($display-font-sizes, 4) !important;
 }
 .display-5 {
-  font-size: map-get($display-font-sizes, 5);
+  font-size: map-get($display-font-sizes, 5) !important;
 }
 
 @media (max-width: 576px) {
   .display-1 {
-    font-size: map-get($display-font-sizes-mb, 1);
+    font-size: map-get($display-font-sizes-mb, 1) !important;
   }
   .display-2 {
-    font-size: map-get($display-font-sizes-mb, 2);
+    font-size: map-get($display-font-sizes-mb, 2) !important;
   }
   .display-3 {
-    font-size: map-get($display-font-sizes-mb, 3);
+    font-size: map-get($display-font-sizes-mb, 3) !important;
   }
   .display-4 {
-    font-size: map-get($display-font-sizes-mb, 4);
+    font-size: map-get($display-font-sizes-mb, 4) !important;
   }
   .display-5 {
-    font-size: map-get($display-font-sizes, 5);
+    font-size: map-get($display-font-sizes-mb, 5) !important;
   }
 }
-
 
 .button--green {
   display: inline-block;

@@ -34,7 +34,7 @@
         </div>
       </div>
       <div class="button-wrapper">
-        <a-button type="default" class="button"
+        <a-button type="default" class="button display-5"
           >Connect to Github with Torus</a-button
         >
       </div>
@@ -122,7 +122,7 @@
       }
 
       .sponsored {
-        margin-bottom: 60px;
+        margin-bottom: 40px;
 
         .pic {
           margin-right: 15px;
@@ -158,13 +158,23 @@
       height: initial;
       color: #fff;
       background-color: #0a0a0a;
-      font-size: 20px;
       line-height: 32px;
       border-radius: 0;
       border: none;
       cursor: pointer;
       &:hover {
         border: none;
+      }
+    }
+  }
+
+  @media (max-width: 576px) {
+    .button-wrapper {
+      margin-top: 0;
+
+      .button {
+        padding: 10px 15px;
+        line-height: 100%;
       }
     }
   }
