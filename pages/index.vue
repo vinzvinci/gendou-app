@@ -1,15 +1,15 @@
 <template>
-  <div class="container">
+  <a-layout class="layout">
     <Header />
-    <div class="content">
+    <a-layout-content class="content">
       <div class="information">
         <div class="message">
-          <p class="welcome">
+          <p class="welcome display-3">
             Welcome to<br />
             the sustainable<br />
             world for OSS
           </p>
-          <p class="airdrop">
+          <p class="airdrop display-5">
             DEV Airdrop for
             <span class="light-blue"
               >most <br />
@@ -22,11 +22,11 @@
           <div class="pic"><img src="/image/pic01.png" alt="sindre" /></div>
           <div class="profile">
             <div class="row-01">
-              <p>Sponsored by</p>
+              <p class="display-6">Sponsored by</p>
               <img src="/image/heart.png" alt="heart" />
             </div>
-            <div class="row-02">Sindre Sorhus</div>
-            <p class="row-03">
+            <div class="row-02 display-4">Sindre Sorhus</div>
+            <p class="row-03 display-6">
               The program is supported by<br />
               a donation by Sindre Sorhus
             </p>
@@ -38,12 +38,25 @@
           >Connect to Github with Torus</a-button
         >
       </div>
-    </div>
-  </div>
+    </a-layout-content>
+  </a-layout>
 </template>
 <style lang="scss">
-.container {
+.layout {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0 156px;
+  width: 100%;
+  max-width: 1440px;
+  min-width: 375px;
   background: url('/image/pic02.png') center center;
+}
+
+@media (max-width: 576px) {
+  .layout {
+    padding: 0 25px;
+  }
 }
 
 .content {
@@ -58,12 +71,8 @@
     .message {
       .welcome {
         margin-bottom: 60px;
-        font-size: 32px;
         font-weight: bold;
         font-family: 'Whyte Inktrap', sans-serif;
-      }
-      .airdrop {
-        font-size: 20px;
       }
     }
 
@@ -82,10 +91,6 @@
           display: flex;
           justify-content: space-between;
 
-          p {
-            font-size: 16px;
-          }
-
           img {
             width: 20px;
             height: 24px;
@@ -93,16 +98,55 @@
         }
         .row-02 {
           margin-bottom: 8px;
-          font-size: 24px;
           font-family: 'Whyte Inktrap', sans-serif;
         }
         .row-03 {
-          font-size: 14px;
           color: #999;
         }
       }
     }
   }
+
+  @media (max-width: 576px) {
+    .information {
+      flex-direction: column;
+      margin-top: 20px;
+
+      .message {
+        margin-bottom: 60px;
+        text-align: center;
+
+        .welcome {
+          margin-bottom: 20px;
+        }
+      }
+
+      .sponsored {
+        margin-bottom: 60px;
+
+        .pic {
+          margin-right: 15px;
+
+          img {
+            width: 50px;
+            height: 50px;
+          }
+        }
+        .profile {
+          .row-01 {
+            img {
+              width: 20px;
+              height: 24px;
+            }
+          }
+          .row-02 {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+
   .button-wrapper {
     display: flex;
     justify-content: center;

@@ -1,28 +1,41 @@
 <template>
-  <header>
+  <a-page-header class="header">
     <img src="/image/header-logo.png" alt="logo" />
     <div class="right-content">
-      <a href="/">QA</a>
+      <a href="/" class="display-4">QA</a>
     </div>
-  </header>
+  </a-page-header>
 </template>
 
-<style scoped lang="scss">
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 29px 0;
-  width: 100%;
+<style lang="scss">
+.header {
+  padding-left: 0;
+  padding-right: 0;
+  background-color: transparent;
 
-  img {
-    width: 116px;
-    height: 72px;
+  .ant-page-header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+
+    img {
+      width: 116px;
+    }
+
+    .right-content {
+      font-weight: 500;
+    }
   }
+}
 
-  .right-content {
-    font-weight: 500;
-    font-size: 24px;
+@media (max-width: 576px) {
+  .header {
+    .ant-page-header-content {
+      img {
+        width: 80px;
+      }
+    }
   }
 }
 </style>
