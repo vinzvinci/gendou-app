@@ -79,6 +79,9 @@ $display-font-sizes-mb: (
 .display-5 {
   font-size: map-get($display-font-sizes, 5) !important;
 }
+.display-6 {
+  font-size: map-get($display-font-sizes, 6) !important;
+}
 
 @media (max-width: 576px) {
   .display-1 {
@@ -95,6 +98,9 @@ $display-font-sizes-mb: (
   }
   .display-5 {
     font-size: map-get($display-font-sizes-mb, 5) !important;
+  }
+  .display-6 {
+    font-size: map-get($display-font-sizes-mb, 6) !important;
   }
 }
 
