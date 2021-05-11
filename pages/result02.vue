@@ -1,40 +1,61 @@
 <template>
-  <div class="container">
+  <a-layout class="layout">
     <Header />
-    <div class="content">
+    <a-layout-content class="content">
       <div class="result">
-        <p class="message">Oops...</p>
+        <p class="message display-5">Oops...</p>
         <img src="/image/pic03.png" alt="" class="heart-black" />
-        <p class="message">Reward not found</p>
+        <p class="message display-5">Reward not found</p>
       </div>
 
       <div class="section-border"></div>
 
       <div class="next">
-        <p class="description">
+        <p class="description display-5">
           Why so? Lorem ipsum dolor sit amet, consectetur<br />
           adipiscing elit, sed do eiusmod tempor incididunt ut<br />
           labore et dolore magna aliqua.
         </p>
 
         <div class="button-wrapper">
-          <a-button type="default" class="button">Buy Dev</a-button>
-          <a-button type="default" class="button">App</a-button>
+          <a-button type="default" class="button display-5">Buy Dev</a-button>
+          <a-button type="default" class="button display-5">App</a-button>
         </div>
       </div>
-    </div>
-  </div>
+    </a-layout-content>
+  </a-layout>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
+body {
+  background: url('/image/background01.png');
+  background-position: center center;
+  background-size: auto 100%;
+}
+
+.layout {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0 156px;
+  width: 100%;
+  max-width: 1440px;
+  min-width: 375px;
+  background-color: transparent;
+}
+
+@media (max-width: 576px) {
+  .layout {
+    padding: 0 25px;
+  }
+}
+
 .content {
-  margin: 0 auto;
-  width: 552px;
+  padding: 0 200px;
 
   .result {
     .message {
       margin-bottom: 24px;
-      font-size: 20px;
       text-align: center;
     }
 
@@ -63,7 +84,6 @@
 
     .description {
       margin-bottom: 60px;
-      font-size: 16px;
       line-height: 28px;
       text-align: center;
     }
@@ -78,7 +98,6 @@
         height: initial;
         color: #fff;
         background-color: #0a0a0a;
-        font-size: 20px;
         line-height: 32px;
         border-radius: 0;
         border: none;
@@ -91,25 +110,46 @@
     }
   }
 }
-</style>
 
-<style lang="scss">
-body {
-  background: url('/image/background01.png');
-  background-position: center center;
-  background-size: auto 100%;
-}
+@media (max-width: 576px) {
+  .content {
+    padding: 0 25px;
 
-.claim-form {
-  .ant-input {
-    padding: 8px 24px;
-    height: initial;
-    border: none;
-    border-radius: 0;
-    font-size: 20px;
-    line-height: 32px;
-    &:focus {
-      box-shadow: none;
+    .result {
+      .message {
+        margin-bottom: 15px;
+      }
+
+      .heart-black {
+        margin: 0 auto 15px;
+        width: 40px;
+        height: auto;
+
+        & > .message {
+          margin-bottom: 30px;
+        }
+      }
+    }
+
+    .section-border {
+      margin-bottom: 15px;
+    }
+
+    .next {
+      margin-bottom: 0;
+
+      .description {
+        margin-bottom: 40px;
+        line-height: 20px;
+      }
+
+      .button-wrapper {
+        .button {
+          margin-bottom: 0;
+          padding: 5px 15px;
+          line-height: 25px;
+        }
+      }
     }
   }
 }

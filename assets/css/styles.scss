@@ -16,7 +16,119 @@
   src: url('../fonts/WhyteInktrap-Bold.otf') format('opentype');
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
 html body {
   font-family: 'Whyte', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
   'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: #0a0a0a;
+}
+
+html {
+  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+  Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 16px;
+  word-spacing: 1px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none !important;
+  color: #0a0a0a !important;
+}
+
+$display-font-sizes: (
+  1: 500px,
+  2: 400px,
+  3: 32px,
+  4: 24px,
+  5: 20px,
+  6: 16px,
+);
+
+$display-font-sizes-mb: (
+  1: 360px,
+  2: 300px,
+  3: 28px,
+  4: 20px,
+  5: 16px,
+  6: 14px,
+);
+
+.display-1 {
+  font-size: map-get($display-font-sizes, 1) !important;
+}
+.display-2 {
+  font-size: map-get($display-font-sizes, 2) !important;
+}
+.display-3 {
+  font-size: map-get($display-font-sizes, 3) !important;
+}
+.display-4 {
+  font-size: map-get($display-font-sizes, 4) !important;
+}
+.display-5 {
+  font-size: map-get($display-font-sizes, 5) !important;
+}
+.display-6 {
+  font-size: map-get($display-font-sizes, 6) !important;
+}
+
+@media (max-width: 576px) {
+  .display-1 {
+    font-size: map-get($display-font-sizes-mb, 1) !important;
+  }
+  .display-2 {
+    font-size: map-get($display-font-sizes-mb, 2) !important;
+  }
+  .display-3 {
+    font-size: map-get($display-font-sizes-mb, 3) !important;
+  }
+  .display-4 {
+    font-size: map-get($display-font-sizes-mb, 4) !important;
+  }
+  .display-5 {
+    font-size: map-get($display-font-sizes-mb, 5) !important;
+  }
+  .display-6 {
+    font-size: map-get($display-font-sizes-mb, 6) !important;
+  }
+}
+
+.button--green {
+  display: inline-block;
+  border-radius: 4px;
+  border: 1px solid #3b8070;
+  color: #3b8070;
+  text-decoration: none;
+  padding: 10px 30px;
+}
+
+.button--green:hover {
+  color: #fff;
+  background-color: #3b8070;
+}
+
+.button--grey {
+  display: inline-block;
+  border-radius: 4px;
+  border: 1px solid #35495e;
+  color: #35495e;
+  text-decoration: none;
+  padding: 10px 30px;
+  margin-left: 15px;
+}
+
+.button--grey:hover {
+  color: #fff;
+  background-color: #35495e;
 }

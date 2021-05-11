@@ -1,52 +1,54 @@
 <template>
-  <div class="container">
+  <a-layout class="layout">
     <Header />
-    <div class="content">
+    <a-layout-content class="content">
       <div class="result">
-        <p class="message">You can claim now</p>
+        <p class="message display-5">You can claim now</p>
         <p class="prize">100 DEV</p>
-        <p class="usd">$100 in USD</p>
+        <p class="usd display-6">$100 in USD</p>
       </div>
       <div class="section-border"></div>
       <div class="next">
-        <div class="step-wrapper">
-          <div class="share">Share to get your DEV</div>
-          <div class="arrow-wrapper">
-            <img src="/image/arrow01.png" alt="" class="arrow-right" />
-          </div>
-          <div class="tweet-wrapper">
-            <a-button type="default" class="tweet-button">Tweet</a-button>
-            <img src="/image/arrow02.png" alt="" class="arrow-bottom" />
-          </div>
-        </div>
-        <div class="form-wrapper">
-          <a-input-search
-            class="claim-form"
-            placeholder="Paste the tweet URL here to confirm"
-            size="large"
-          >
-            <a-button class="claim-button" slot="enterButton">Claim</a-button>
-          </a-input-search>
-        </div>
-        <p class="description">
+        <p class="description display-6">
           Stake your DEV for an OSS project to earn XX%/year<br />
           and support an OSS project by XX USD/year
           <a href="/" class="how-to">How to stake?</a>
         </p>
       </div>
-    </div>
-  </div>
+    </a-layout-content>
+  </a-layout>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
+body {
+  background: url('/image/background01.png');
+  background-position: center center;
+  background-size: auto 100%;
+}
+
+.layout {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0 156px;
+  width: 100%;
+  max-width: 1440px;
+  min-width: 375px;
+  background-color: transparent;
+}
+
+@media (max-width: 576px) {
+  .layout {
+    padding: 0 25px;
+  }
+}
+
 .content {
-  margin: 0 auto;
-  width: 552px;
+  padding: 0 200px;
 
   .result {
     .message {
       margin-bottom: 15px;
-      font-size: 20px;
       text-align: center;
     }
 
@@ -63,7 +65,6 @@
     .usd {
       margin-bottom: 45px;
       font-family: 'Whyte Inktrap', sans-serif;
-      font-size: 16px;
       text-align: center;
     }
   }
@@ -78,77 +79,6 @@
 
   .next {
     margin-bottom: 128px;
-
-    .step-wrapper {
-      display: flex;
-      align-items: start;
-      justify-content: space-between;
-      margin-bottom: 25px;
-
-      .share {
-        font-family: 'Whyte Inktrap', sans-serif;
-        font-weight: bold;
-        font-size: 32px;
-      }
-
-      .arrow-wrapper {
-        display: flex;
-        align-items: center;
-        height: 48px;
-
-        .arrow-right {
-          width: 24px;
-        }
-      }
-
-      .tweet-wrapper {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-
-        .tweet-button {
-          margin-bottom: 23px;
-          padding: 8px 24px;
-          height: initial;
-          color: #fff;
-          background-color: #0a0a0a;
-          font-size: 20px;
-          line-height: 32px;
-          border-radius: 0;
-          border: none;
-          cursor: pointer;
-
-          &:hover {
-            border: none;
-          }
-        }
-
-        .arrow-bottom {
-          width: 24px;
-        }
-      }
-    }
-
-    .form-wrapper {
-      margin-bottom: 60px;
-
-      .claim-button {
-        padding: 8px 24px;
-        height: initial;
-        color: #fff;
-        background-color: #999;
-        font-size: 20px;
-        line-height: 32px;
-        border-radius: 0;
-        border: none;
-        cursor: pointer;
-
-        &:hover {
-          border: none;
-        }
-      }
-    }
 
     .description {
       position: relative;
@@ -168,25 +98,44 @@
     }
   }
 }
-</style>
 
-<style lang="scss">
-body {
-  background: url('/image/background01.png');
-  background-position: center center;
-  background-size: auto 100%;
-}
+@media (max-width: 576px) {
+  .content {
+    padding: 0 25px;
 
-.claim-form {
-  .ant-input {
-    padding: 8px 24px;
-    height: initial;
-    border: none;
-    border-radius: 0;
-    font-size: 20px;
-    line-height: 32px;
-    &:focus {
-      box-shadow: none;
+    .result {
+      .message {
+        margin-bottom: 10px;
+      }
+
+      .prize {
+        margin-bottom: 10px;
+        font-size: 60px;
+        line-height: 100%;
+      }
+
+      .usd {
+        margin-bottom: 15px;
+      }
+    }
+
+    .section-border {
+      margin-bottom: 15px;
+    }
+
+    .next {
+      margin-bottom: 0;
+
+      .description {
+        line-height: 20px;
+
+        .how-to {
+          display: block;
+          position: unset;
+          transform: unset;
+          padding-top: 20px;
+        }
+      }
     }
   }
 }
