@@ -1,7 +1,7 @@
 <template>
-  <div class="container">
+  <a-layout class="layout">
     <Header />
-    <div class="content">
+    <a-layout-content class="content">
       <section class="your-prize">
         <div class="result">
           <p class="message">You can claim now</p>
@@ -19,7 +19,7 @@
 
       <section class="stakes-social">
         <div class="card-wrapper">
-          <div class="card">
+          <a-card class="card">
             <div class="card-header">
               <p class="title">Sigma</p>
               <img src="/image/icon01.png" alt="Sigma" class="oss-logo" />
@@ -43,8 +43,8 @@
             <div class="button-wrapper">
               <a-button type="default" class="button">Stake</a-button>
             </div>
-          </div>
-          <div class="card">
+          </a-card>
+          <a-card class="card">
             <div class="card-header">
               <p class="title">Sigma</p>
               <img src="/image/icon01.png" alt="Sigma" class="oss-logo" />
@@ -68,8 +68,8 @@
             <div class="button-wrapper">
               <a-button type="default" class="button">Stake</a-button>
             </div>
-          </div>
-          <div class="card">
+          </a-card>
+          <a-card class="card">
             <div class="card-header">
               <p class="title">Sigma</p>
               <img src="/image/icon01.png" alt="Sigma" class="oss-logo" />
@@ -93,7 +93,7 @@
             <div class="button-wrapper">
               <a-button type="default" class="button">Stake</a-button>
             </div>
-          </div>
+          </a-card>
         </div>
         <p class="sub-title">Explore the 1,600 OSS projects on</p>
         <img src="/image/pic04.png" alt="stakes social" class="logo" />
@@ -168,8 +168,8 @@
       </section>
 
       <div class="section-border"></div>
-    </div>
-    <footer>
+    </a-layout-content>
+    <a-layout-footer class="footer">
       <div class="footer-wrapper">
         <img src="/image/logo01.png" alt="Dev Protocol" class="footer-logo" />
         <div class="sponsored">
@@ -185,13 +185,37 @@
           <img src="/image/pic06.png" alt="heart" class="heart" />
         </div>
       </div>
-    </footer>
-  </div>
+    </a-layout-footer>
+  </a-layout>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
+body {
+  background: url('/image/background01.png');
+  background-position: center top;
+  background-size: auto 799px;
+  background-repeat: repeat-x;
+}
+
+.layout {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0 156px;
+  width: 100%;
+  max-width: 1440px;
+  min-width: 375px;
+  background-color: transparent;
+}
+
+@media (max-width: 576px) {
+  .layout {
+    padding: 0 25px;
+  }
+}
+
 .content {
-  margin: 0 auto;
+  width: 100%;
 
   .your-prize {
     height: 669px;
@@ -464,8 +488,9 @@
   }
 }
 
-footer {
+.footer {
   padding: 96px 0 142px;
+  background-color: transparent;
 
   .footer-wrapper {
     display: flex;
@@ -513,29 +538,6 @@ footer {
         width: 20px;
         height: 24px;
       }
-    }
-  }
-}
-</style>
-
-<style lang="scss">
-body {
-  background: url('/image/background01.png');
-  background-position: center top;
-  background-size: auto 799px;
-  background-repeat: repeat-x;
-}
-
-.claim-form {
-  .ant-input {
-    padding: 8px 24px;
-    height: initial;
-    border: none;
-    border-radius: 0;
-    font-size: 20px;
-    line-height: 32px;
-    &:focus {
-      box-shadow: none;
     }
   }
 }
