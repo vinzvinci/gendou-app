@@ -3,13 +3,13 @@
     <Header />
     <a-layout-content class="content">
       <div class="result">
-        <p class="message">You can claim now</p>
+        <p class="message display-5">You can claim now</p>
         <p class="prize">100 DEV</p>
-        <p class="usd">$100 in USD</p>
+        <p class="usd display-6">$100 in USD</p>
       </div>
       <div class="section-border"></div>
       <div class="next">
-        <p class="description">
+        <p class="description display-6">
           Stake your DEV for an OSS project to earn XX%/year<br />
           and support an OSS project by XX USD/year
           <a href="/" class="how-to">How to stake?</a>
@@ -37,13 +37,18 @@ body {
   background-color: transparent;
 }
 
+@media (max-width: 576px) {
+  .layout {
+    padding: 0 25px;
+  }
+}
+
 .content {
   padding: 0 200px;
 
   .result {
     .message {
       margin-bottom: 15px;
-      font-size: 20px;
       text-align: center;
     }
 
@@ -60,7 +65,6 @@ body {
     .usd {
       margin-bottom: 45px;
       font-family: 'Whyte Inktrap', sans-serif;
-      font-size: 16px;
       text-align: center;
     }
   }
@@ -90,6 +94,47 @@ body {
         font-size: 16px;
         line-height: 28px;
         text-decoration: underline;
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .content {
+    padding: 0 25px;
+
+    .result {
+      .message {
+        margin-bottom: 10px;
+      }
+
+      .prize {
+        margin-bottom: 10px;
+        font-size: 60px;
+        line-height: 100%;
+      }
+
+      .usd {
+        margin-bottom: 15px;
+      }
+    }
+
+    .section-border {
+      margin-bottom: 15px;
+    }
+
+    .next {
+      margin-bottom: 0;
+
+      .description {
+        line-height: 20px;
+
+        .how-to {
+          display: block;
+          position: unset;
+          transform: unset;
+          padding-top: 20px;
+        }
       }
     }
   }
