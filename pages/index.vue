@@ -50,12 +50,13 @@
   width: 100%;
   max-width: 1440px;
   min-width: 375px;
-  background: url('/image/pic02.png') center center;
+  background: url('/image/pic02.png') center center no-repeat;
 }
 
 @media (max-width: 576px) {
   .layout {
     padding: 0 25px;
+    background: url('/image/pic02.png') center 380px no-repeat;
   }
 }
 
@@ -171,6 +172,7 @@
   @media (max-width: 576px) {
     .button-wrapper {
       margin-top: 0;
+      padding-top: 400px;
 
       .button {
         padding: 10px 15px;
