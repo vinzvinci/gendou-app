@@ -2,6 +2,14 @@
   <a-layout class="layout">
     <Header />
     <a-layout-content class="content">
+      <lottie
+        class="lottie"
+        :options="defaultOptions"
+        :start="animationStart"
+        :width="0"
+        :height="0"
+        @animCreated="handleAnimation"
+      />
       <div class="information">
         <div class="message">
           <p class="welcome display-3">
@@ -33,14 +41,43 @@
           </div>
         </div>
       </div>
-      <div class="button-wrapper">
-        <a-button type="default" class="button display-5"
+      <div class="button-wrapper" :class="{ active: animationStart }">
+        <a-button
+          type="default"
+          class="button display-5"
+          @click="handleAnimationStart"
           >Connect to Github with Torus</a-button
         >
       </div>
     </a-layout-content>
   </a-layout>
 </template>
+<script>
+import Lottie from '~/components/Lottie'
+
+import * as animationData from '~/assets/animationTest.json'
+
+export default {
+  components: {
+    Lottie,
+  },
+  data() {
+    return {
+      defaultOptions: { animationData },
+      animationSpeed: 1,
+      animationStart: false,
+    }
+  },
+  methods: {
+    handleAnimation(anim) {
+      this.anim = anim
+    },
+    handleAnimationStart() {
+      this.animationStart = true
+    },
+  },
+}
+</script>
 <style lang="scss">
 .layout {
   position: relative;
@@ -50,24 +87,42 @@
   width: 100%;
   max-width: 1440px;
   min-width: 375px;
-  background: url('/image/pic02.png') center center no-repeat;
+  background-color: transparent;
 }
 
 @media (max-width: 576px) {
   .layout {
     padding: 0 25px;
-    background: url('/image/pic02.png') center 380px no-repeat;
   }
 }
 
 .content {
+  position: relative;
   padding-bottom: 246px;
 
+  .lottie {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+  }
+
+  @media (max-width: 576px) {
+    .lottie {
+      position: absolute;
+      top: 100px;
+      left: 0;
+      z-index: 0;
+    }
+  }
+
   .information {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 134px;
+    z-index: 1;
 
     .message {
       .welcome {
@@ -154,6 +209,11 @@
     margin-top: 6px;
     width: 100%;
 
+    &.active {
+      transition: opacity 0.4s ease-out;
+      opacity: 0;
+    }
+
     .button {
       padding: 8px 24px;
       height: initial;
@@ -172,7 +232,7 @@
   @media (max-width: 576px) {
     .button-wrapper {
       margin-top: 0;
-      padding-top: 400px;
+      padding-top: 100px;
 
       .button {
         padding: 10px 15px;
