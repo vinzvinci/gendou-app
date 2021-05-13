@@ -227,7 +227,18 @@
     </a-layout-footer>
   </a-layout>
 </template>
+<script>
+import { mapActions } from 'vuex'
 
+export default {
+  async created() {
+    if ((await this.isConnected()) === false) this.$router.push('/')
+  },
+  methods: {
+    ...mapActions(['isConnected']),
+  },
+}
+</script>
 <style lang="scss">
 body {
   background: url('/image/background01.png');
