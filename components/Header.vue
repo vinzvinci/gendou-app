@@ -1,6 +1,8 @@
 <template>
   <a-page-header class="header">
-    <img src="/image/header-logo.png" alt="logo" />
+    <router-link :to="'/'">
+      <img src="/image/header-logo.png" alt="logo" />
+    </router-link>
     <div class="right-content">
       <a href="/" class="display-4">QA</a>
     </div>
