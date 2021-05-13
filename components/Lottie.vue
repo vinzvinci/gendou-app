@@ -10,11 +10,6 @@ export default {
       type: Object,
       required: true,
     },
-    height: {
-      type: Number,
-      required: true,
-      defaults: 400,
-    },
     width: {
       type: Number,
       required: true,
@@ -30,18 +25,14 @@ export default {
     return {
       style: {
         width: this.width ? `${this.width}px` : '100%',
-        height: this.height ? `${this.height}px` : '100%',
         overflow: 'hidden',
-        margin: '0 auto',
       },
     }
   },
 
   watch: {
     start(val, old) {
-      console.log(val, old)
       if (val === true) {
-        console.log(1)
         this.anim.play()
       }
     },
@@ -53,11 +44,13 @@ export default {
       renderer: 'svg',
       loop: false,
       autoplay: false,
-      animationData: this.options.animationData.default, // ここだけ変更何故かデフォルトを入れないと動かなかった… (要検証)
+      animationData: this.options.animationData.default,
       rendererSettings: this.options.rendererSettings,
     })
     this.$emit('animCreated', this.anim)
-    this.anim.addEventListener('complete', () => console.log('complete'))
+    this.anim.addEventListener('complete', () => {
+      this.$emit('complete', true)
+    })
   },
 }
 </script>
