@@ -5,7 +5,7 @@
       <div class="result">
         <p class="message display-5">You can claim now</p>
         <p class="prize">{{ prize }} DEV</p>
-        <p class="usd display-6">$100 in USD</p>
+        <p class="usd display-6">${{ prizeUSD }} in USD</p>
       </div>
       <div class="section-border"></div>
       <div class="next">
@@ -19,19 +19,30 @@
   </a-layout>
 </template>
 <script>
+import BigNumber from 'bignumber.js'
 import { mapActions } from 'vuex'
+import getStats from '~/utils/devkit'
 
 export default {
   data() {
     return {
       prize: 0,
+      prizeUSD: 0,
     }
   },
   async created() {
     if ((await this.isConnected()) === false) this.$router.push('/')
   },
   async mounted() {
-    this.prize = await this.getPrize()
+    const [prize, { devPrice }] = await Promise.all([
+      this.getPrize(),
+      getStats(),
+    ])
+    this.prize = prize
+    this.prizeUSD = new BigNumber(prize)
+      .multipliedBy(new BigNumber(devPrice))
+      .dp(0)
+      .toNumber()
   },
   methods: {
     ...mapActions(['isConnected', 'getPrize']),
