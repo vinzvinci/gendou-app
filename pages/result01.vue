@@ -4,7 +4,7 @@
     <a-layout-content class="content">
       <div class="result">
         <p class="message display-5">You can claim now</p>
-        <p class="prize">100 DEV</p>
+        <p class="prize">{{ prize }} DEV</p>
         <p class="usd display-6">$100 in USD</p>
       </div>
       <div class="section-border"></div>
@@ -25,8 +25,16 @@ export default {
   async created() {
     if ((await this.isConnected()) === false) this.$router.push('/')
   },
+  data() {
+    return {
+      prize: 0,
+    }
+  },
+  async mounted() {
+    this.prize = await this.getPrize()
+  },
   methods: {
-    ...mapActions(['isConnected']),
+    ...mapActions(['isConnected', 'getPrize']),
   },
 }
 </script>

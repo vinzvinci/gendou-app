@@ -1,3 +1,5 @@
+import { BigNumber } from '@ethersproject/bignumber'
+
 export const state = () => ({
   isConnected: false,
   account: '',
@@ -86,6 +88,10 @@ export const actions = {
       commit('setReward', data.reward)
       commit('setRewardFindAt', data.rewardFindAt)
     }
+  },
+  getPrize({ state }) {
+    const decimalNumber = Math.pow(10, 18).toString()
+    return BigNumber.from(state.reward).div(decimalNumber).toString()
   },
   isGotPrize({ state }) {
     return state.reward > 0
