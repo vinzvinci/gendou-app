@@ -1,5 +1,4 @@
 import { BigNumber } from '@ethersproject/bignumber'
-import Web3 from 'web3'
 
 export const state = () => ({
   isConnected: false,
@@ -9,6 +8,7 @@ export const state = () => ({
   reward: 0,
   rewardFindAt: '',
   buttonLoadingConnect: false,
+  web3Provider: undefined,
 })
 
 export const mutations = {
@@ -16,6 +16,7 @@ export const mutations = {
   setAccount: (state, value) => (state.account = value),
   setGitHubUserName: (state, value) => (state.githubUserName = value),
   setUserInfo: (state, value) => (state.userInfo = value),
+  setWeb3Provider: (state, value) => (state.web3Provider = value),
   setReward: (state, value) => (state.reward = value),
   setRewardFindAt: (state, value) => (state.rewardFindAt = value),
   setButtonLoadingConnect: (state, value) =>
@@ -39,17 +40,18 @@ const fetchPrizeInfo = async (axios, githubUserId) => {
   }
 }
 
-const fetchClaimUrl = async (axios, githubUserId, address) => {
+const fetchClaimUrl = async (web3, axios, githubUserId, address) => {
   // Todo Signatureを生成して送る
   console.log('bar', githubUserId, address)
-  const web3 = new Web3(Web3.givenProvider)
+  // const web3 = new Web3(Web3.givenProvider)
 
-  web3.eth.getAccounts(console.log)
+  // web3.eth.getAccounts(console.log)
 
-  const signature = await web3.eth.sign(
-    githubUserId,
-    '0x5F454f79a0871fFc9C09eD4F177409646E69b8Da'
-  )
+  const signature = await web3.eth.personal.sign(githubUserId, address, '')
+  // const signature = await web3.eth.sign(
+  //   githubUserId,
+  //   '0x5F454f79a0871fFc9C09eD4F177409646E69b8Da'
+  // )
 
   console.log({ signature })
 
@@ -69,12 +71,13 @@ const fetchClaimUrl = async (axios, githubUserId, address) => {
 
 export const actions = {
   async connectTorusWallet({ commit }) {
-    const { account, userInfo } = await this.$torus.connect()
+    const { account, userInfo, web3 } = await this.$torus.connect()
     if (account) {
       commit('setIsConnected', true)
     }
     commit('setAccount', account)
     commit('setUserInfo', userInfo)
+    commit('setWeb3Provider', web3)
     if (userInfo) {
       // Todo TorusでGithubログインを選択するとエラーになるのでハードコーディングする
       // commit('setGitHubUserName', 'kazu80')
@@ -124,6 +127,7 @@ export const actions = {
     console.log('foo')
 
     const res = await fetchClaimUrl(
+      state.web3Provider,
       this.$axios,
       state.githubUserName,
       state.account
