@@ -21,6 +21,9 @@ const torusPlugin = (context, inject) => {
         // not logged in yet. -> ignore
       }
     },
+    getProvider() {
+      return torus.provider
+    },
     async cleanUp() {
       await torus.cleanUp()
     },

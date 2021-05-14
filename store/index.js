@@ -1,4 +1,5 @@
 import { BigNumber } from '@ethersproject/bignumber'
+import Web3 from 'web3'
 
 export const state = () => ({
   isConnected: false,
@@ -8,7 +9,6 @@ export const state = () => ({
   reward: 0,
   rewardFindAt: '',
   buttonLoadingConnect: false,
-  web3Provider: undefined,
 })
 
 export const mutations = {
@@ -16,7 +16,6 @@ export const mutations = {
   setAccount: (state, value) => (state.account = value),
   setGitHubUserName: (state, value) => (state.githubUserName = value),
   setUserInfo: (state, value) => (state.userInfo = value),
-  setWeb3Provider: (state, value) => (state.web3Provider = value),
   setReward: (state, value) => (state.reward = value),
   setRewardFindAt: (state, value) => (state.rewardFindAt = value),
   setButtonLoadingConnect: (state, value) =>
@@ -71,13 +70,12 @@ const fetchClaimUrl = async (web3, axios, githubUserId, address) => {
 
 export const actions = {
   async connectTorusWallet({ commit }) {
-    const { account, userInfo, web3 } = await this.$torus.connect()
+    const { account, userInfo } = await this.$torus.connect()
     if (account) {
       commit('setIsConnected', true)
     }
     commit('setAccount', account)
     commit('setUserInfo', userInfo)
-    commit('setWeb3Provider', web3)
     if (userInfo) {
       // Todo TorusでGithubログインを選択するとエラーになるのでハードコーディングする
       // commit('setGitHubUserName', 'kazu80')
@@ -127,7 +125,7 @@ export const actions = {
     console.log('foo')
 
     const res = await fetchClaimUrl(
-      state.web3Provider,
+      new Web3(this.$torus.getProvider()),
       this.$axios,
       state.githubUserName,
       state.account
