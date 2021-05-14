@@ -1,4 +1,5 @@
 import { BigNumber } from '@ethersproject/bignumber'
+import Web3 from 'web3'
 
 export const state = () => ({
   isConnected: false,
@@ -38,6 +39,34 @@ const fetchPrizeInfo = async (axios, githubUserId) => {
   }
 }
 
+const fetchClaimUrl = async (axios, githubUserId, address) => {
+  // Todo Signatureを生成して送る
+  console.log('bar', githubUserId, address)
+  const web3 = new Web3(Web3.givenProvider)
+
+  web3.eth.getAccounts(console.log)
+
+  const signature = await web3.eth.sign(
+    githubUserId,
+    '0x5F454f79a0871fFc9C09eD4F177409646E69b8Da'
+  )
+
+  console.log({ signature })
+
+  const url = GET_GENDOU_API_URL + `v1/findClaimUrl`
+  try {
+    return await axios.post(url, {
+      params: {
+        github_id: githubUserId,
+        signature,
+        address,
+      },
+    })
+  } catch (e) {
+    throw new Error(e)
+  }
+}
+
 export const actions = {
   async connectTorusWallet({ commit }) {
     const { account, userInfo } = await this.$torus.connect()
@@ -49,8 +78,9 @@ export const actions = {
     if (userInfo) {
       // Todo TorusでGithubログインを選択するとエラーになるのでハードコーディングする
       // commit('setGitHubUserName', 'kazu80')
-      // commit('setGitHubUserName', 'git-id1')
+      commit('setGitHubUserName', 'git-id1')
 
+      /*
       const verifierId = userInfo.verifierId
       const githubUserId = verifierId.split('github|')[1]
       if (!githubUserId) {
@@ -61,6 +91,7 @@ export const actions = {
       if (userName) {
         commit('setGitHubUserName', userName)
       }
+       */
     }
   },
   async getTorusUserInfo({ commit }) {
@@ -88,6 +119,17 @@ export const actions = {
       commit('setReward', data.reward)
       commit('setRewardFindAt', data.rewardFindAt)
     }
+  },
+  async getClaimInfo({ commit, state }) {
+    console.log('foo')
+
+    const res = await fetchClaimUrl(
+      this.$axios,
+      state.githubUserName,
+      state.account
+    )
+
+    console.log(res)
   },
   getPrize({ state }) {
     const decimalNumber = Math.pow(10, 18).toString()

@@ -55,10 +55,6 @@ import Lottie from '~/components/Lottie'
 import * as animationData from '~/assets/animationTest.json'
 
 export default {
-  computed: mapState({
-    isConnected: (state) => state.isConnected,
-    githubUserName: (state) => state.githubUserName,
-  }),
   components: {
     Lottie,
   },
@@ -69,6 +65,10 @@ export default {
       animationStart: false,
     }
   },
+  computed: mapState({
+    isConnected: (state) => state.isConnected,
+    githubUserName: (state) => state.githubUserName,
+  }),
   methods: {
     async handleConnectTorusWallet(res) {
       if (res === false) {
@@ -78,7 +78,10 @@ export default {
       }
 
       try {
-        await this.getPrizeInfo()
+        // await this.getPrizeInfo()
+        await this.getClaimInfo()
+
+        // The door animation start
         this.animationStart = true
       } catch (e) {
         await this.stopLoadingConnectButton()
@@ -131,7 +134,12 @@ export default {
         ),
       })
     },
-    ...mapActions(['getPrizeInfo', 'isGotPrize', 'stopLoadingConnectButton']),
+    ...mapActions([
+      'getPrizeInfo',
+      'isGotPrize',
+      'stopLoadingConnectButton',
+      'getClaimInfo',
+    ]),
   },
 }
 </script>

@@ -22,13 +22,13 @@
 import { mapActions } from 'vuex'
 
 export default {
-  async created() {
-    if ((await this.isConnected()) === false) this.$router.push('/')
-  },
   data() {
     return {
       prize: 0,
     }
+  },
+  async created() {
+    if ((await this.isConnected()) === false) this.$router.push('/')
   },
   async mounted() {
     this.prize = await this.getPrize()
