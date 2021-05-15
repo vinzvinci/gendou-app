@@ -23,7 +23,8 @@
 import BigNumber from 'bignumber.js'
 import Web3 from 'web3'
 import { mapActions } from 'vuex'
-import { getStats, getAPY, HTTP_PROVIDER_URL } from '~/utils/devkit'
+import { getStats, getAPY } from '~/utils/devkit'
+import { HTTP_PROVIDER_URL } from '~/utils/web3'
 
 export default {
   data() {
