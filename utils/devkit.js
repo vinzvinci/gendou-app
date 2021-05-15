@@ -1,9 +1,6 @@
 import { addresses, client, contractFactory } from '@devprotocol/dev-kit'
 import BigNumber from 'bignumber.js'
-
-// TODO: temporary value
-export const HTTP_PROVIDER_URL =
-  'https://mainnet.infura.io/v3/f7a4c86a99304a2993a35bf53017fa38'
+import { HTTP_PROVIDER_URL } from '~/utils/web3'
 
 export const getContractAddress = async (client, contract) => {
   const address = await client.registry(addresses.eth.main.registry)[contract]()
