@@ -10,7 +10,8 @@
       <div class="section-border"></div>
       <div class="next">
         <p class="description display-6">
-          Stake your DEV for an OSS project to earn XX%/year<br />
+          Stake your DEV for an OSS project to earn
+          {{ stakersAPY }}%/year<br />
           and support an OSS project by XX USD/year
           <a href="/" class="how-to">How to stake?</a>
         </p>
@@ -20,14 +21,17 @@
 </template>
 <script>
 import BigNumber from 'bignumber.js'
+import Web3 from 'web3'
 import { mapActions } from 'vuex'
-import getStats from '~/utils/devkit'
+import { getStats, getAPY, HTTP_PROVIDER_URL } from '~/utils/devkit'
 
 export default {
   data() {
     return {
       prize: 0,
       prizeUSD: 0,
+      creatorsAPY: '-', // NOTE: not use, now
+      stakersAPY: '-',
     }
   },
   async created() {
@@ -43,6 +47,10 @@ export default {
       .multipliedBy(new BigNumber(devPrice))
       .dp(0)
       .toNumber()
+    const web3 = new Web3(HTTP_PROVIDER_URL)
+    const { apy, creators } = await getAPY(web3)
+    this.creatorsAPY = creators.toFixed(2)
+    this.stakersAPY = apy.toFixed(2)
   },
   methods: {
     ...mapActions(['isConnected', 'getPrize']),
