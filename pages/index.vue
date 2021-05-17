@@ -177,7 +177,7 @@ body {
 @media (max-width: 576px) {
   .lottie {
     position: absolute;
-    top: 100px;
+    top: 0;
     left: 0;
     z-index: 0;
   }
@@ -242,10 +242,10 @@ body {
   @media (max-width: 576px) {
     .information {
       flex-direction: column;
-      margin-top: 20px;
+      margin-top: 140px;
 
       .message {
-        margin-bottom: 60px;
+        margin-bottom: 20px;
         text-align: center;
 
         .welcome {
@@ -254,7 +254,7 @@ body {
       }
 
       .sponsored {
-        margin-bottom: 40px;
+        margin-bottom: 0;
 
         .pic {
           margin-right: 15px;
@@ -303,7 +303,7 @@ body {
   @media (max-width: 576px) {
     .button-wrapper {
       margin-top: 0;
-      padding-top: 100px;
+      padding-top: 30px;
 
       .button {
         padding: 10px 15px;
