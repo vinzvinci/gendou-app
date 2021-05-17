@@ -1,5 +1,5 @@
 <template>
-  <div ref="lavContainer" :style="style"></div>
+  <div ref="lavContainer" class="door-animation"></div>
 </template>
 
 <script>
@@ -19,15 +19,6 @@ export default {
       type: Boolean,
       defaults: false,
     },
-  },
-
-  data() {
-    return {
-      style: {
-        width: this.width ? `${this.width}px` : '100%',
-        overflow: 'hidden',
-      },
-    }
   },
 
   watch: {
@@ -54,3 +45,14 @@ export default {
   },
 }
 </script>
+<style lang="scss" scoped>
+.door-animation {
+  width: 100%;
+  overflow: hidden;
+}
+@media (max-width: 576px) {
+  .door-animation {
+    width: 100%;
+  }
+}
+</style>

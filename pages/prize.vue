@@ -141,7 +141,7 @@
             <a href="/" class="more display-6">Learn more</a>
           </div>
         </div>
-        <div class="join-us-button-wrapper foo">
+        <div class="join-us-button-wrapper">
           <a-button type="default" class="join-us-button display-5"
             >Apply</a-button
           >

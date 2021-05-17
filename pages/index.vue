@@ -55,10 +55,6 @@ import Lottie from '~/components/Lottie'
 import * as animationData from '~/assets/animationTest.json'
 
 export default {
-  computed: mapState({
-    isConnected: (state) => state.isConnected,
-    githubUserName: (state) => state.githubUserName,
-  }),
   components: {
     Lottie,
   },
@@ -69,6 +65,10 @@ export default {
       animationStart: false,
     }
   },
+  computed: mapState({
+    isConnected: (state) => state.isConnected,
+    githubUserName: (state) => state.githubUserName,
+  }),
   methods: {
     async handleConnectTorusWallet(res) {
       if (res === false) {
@@ -78,10 +78,14 @@ export default {
       }
 
       try {
-        await this.getPrizeInfo()
+        // await this.getPrizeInfo()
+        await this.getClaimInfo()
+
+        // The door animation start
         this.animationStart = true
       } catch (e) {
         await this.stopLoadingConnectButton()
+        await this.$torus.cleanUp()
 
         this.openNotificationWithIcon(
           'error',
@@ -131,13 +135,18 @@ export default {
         ),
       })
     },
-    ...mapActions(['getPrizeInfo', 'isGotPrize', 'stopLoadingConnectButton']),
+    ...mapActions([
+      'getPrizeInfo',
+      'isGotPrize',
+      'stopLoadingConnectButton',
+      'getClaimInfo',
+    ]),
   },
 }
 </script>
 <style lang="scss">
 body {
-  background: url('/images/Animation_Test_001_0001.jpg') no-repeat;
+  background: url('/image/pic09.jpg') no-repeat;
   background-size: 100% auto;
 }
 
@@ -168,7 +177,7 @@ body {
 @media (max-width: 576px) {
   .lottie {
     position: absolute;
-    top: 100px;
+    top: 0;
     left: 0;
     z-index: 0;
   }
@@ -233,10 +242,10 @@ body {
   @media (max-width: 576px) {
     .information {
       flex-direction: column;
-      margin-top: 20px;
+      margin-top: 140px;
 
       .message {
-        margin-bottom: 60px;
+        margin-bottom: 20px;
         text-align: center;
 
         .welcome {
@@ -245,7 +254,7 @@ body {
       }
 
       .sponsored {
-        margin-bottom: 40px;
+        margin-bottom: 0;
 
         .pic {
           margin-right: 15px;
@@ -294,7 +303,7 @@ body {
   @media (max-width: 576px) {
     .button-wrapper {
       margin-top: 0;
-      padding-top: 100px;
+      padding-top: 30px;
 
       .button {
         padding: 10px 15px;
