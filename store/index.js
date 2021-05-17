@@ -9,6 +9,7 @@ export const state = () => ({
   reward: 0,
   rewardFindAt: '',
   buttonLoadingConnect: false,
+  claimUrl: '',
 })
 
 export const mutations = {
@@ -20,6 +21,7 @@ export const mutations = {
   setRewardFindAt: (state, value) => (state.rewardFindAt = value),
   setButtonLoadingConnect: (state, value) =>
     (state.buttonLoadingConnect = value),
+  setClaimUrl: (state, value) => (state.claimUrl = value),
 }
 
 const GET_GITHUB_USER_API_URL = 'https://api.github.com/user/'
@@ -40,28 +42,15 @@ const fetchPrizeInfo = async (axios, githubUserId) => {
 }
 
 const fetchClaimUrl = async (web3, axios, githubUserId, address) => {
-  // Todo Signatureを生成して送る
-  console.log('bar', githubUserId, address)
-  // const web3 = new Web3(Web3.givenProvider)
-
-  // web3.eth.getAccounts(console.log)
-
   const signature = await web3.eth.personal.sign(githubUserId, address, '')
-  // const signature = await web3.eth.sign(
-  //   githubUserId,
-  //   '0x5F454f79a0871fFc9C09eD4F177409646E69b8Da'
-  // )
-
-  console.log({ signature })
-
   const url = GET_GENDOU_API_URL + `v1/findClaimUrl`
+
   try {
+    // Todo パラメーターが変わる
     return await axios.post(url, {
-      params: {
-        github_id: githubUserId,
-        signature,
-        address,
-      },
+      github_id: githubUserId,
+      signature,
+      address,
     })
   } catch (e) {
     throw new Error(e)
@@ -122,16 +111,17 @@ export const actions = {
     }
   },
   async getClaimInfo({ commit, state }) {
-    console.log('foo')
-
-    const res = await fetchClaimUrl(
+    const { data } = await fetchClaimUrl(
       new Web3(this.$torus.getProvider()),
       this.$axios,
       state.githubUserName,
       state.account
     )
 
-    console.log(res)
+    if (data.reward) {
+      commit('setReward', data.reward)
+      commit('setClaimUrl', data.claim_url)
+    }
   },
   getPrize({ state }) {
     const decimalNumber = Math.pow(10, 18).toString()
@@ -148,11 +138,5 @@ export const actions = {
   },
   stopLoadingConnectButton({ commit }) {
     commit('setButtonLoadingConnect', false)
-  },
-}
-
-export const getters = {
-  getButtonLoadingConnect({ state }) {
-    return state.buttonLoadingConnect
   },
 }

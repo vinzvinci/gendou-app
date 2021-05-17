@@ -85,6 +85,7 @@ export default {
         this.animationStart = true
       } catch (e) {
         await this.stopLoadingConnectButton()
+        await this.$torus.cleanUp()
 
         this.openNotificationWithIcon(
           'error',
@@ -145,7 +146,7 @@ export default {
 </script>
 <style lang="scss">
 body {
-  background: url('/images/Animation_Test_001_0001.jpg') no-repeat;
+  background: url('/image/pic09.jpg') no-repeat;
   background-size: 100% auto;
 }
 
