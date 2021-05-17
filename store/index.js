@@ -127,6 +127,9 @@ export const actions = {
     const decimalNumber = Math.pow(10, 18).toString()
     return BigNumber.from(state.reward).div(decimalNumber).toString()
   },
+  getClaimUrl({ state }) {
+    return state.claimUrl
+  },
   isGotPrize({ state }) {
     return state.reward > 0
   },
