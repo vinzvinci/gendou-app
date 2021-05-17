@@ -1993,10 +1993,10 @@
   dependencies:
     deepmerge "^4.2.2"
 
-"@toruslabs/torus-embed@1.9.14":
-  version "1.9.14"
-  resolved "https://registry.yarnpkg.com/@toruslabs/torus-embed/-/torus-embed-1.9.14.tgz#6d487a735ec6e570d62a044069581dc372ab193e"
-  integrity sha512-TV6d6QjawQL59UbdfrE6CWjvPRL5lVSZkObYlkCyLcxnygOrcO6Bt4imWAaoh/dE+WrHg/MRtqcKoL+t5u4VhQ==
+"@toruslabs/torus-embed@1.10.10":
+  version "1.10.10"
+  resolved "https://registry.yarnpkg.com/@toruslabs/torus-embed/-/torus-embed-1.10.10.tgz#478feaafa7b6cdcff8d48513e2696fec26ae8a95"
+  integrity sha512-RlJYk0mZHq1bR/F0G5tu8vrYNK2lUr7hMG91BX3vF10HsdmCRntbAsHAkUssdyVE6ZCBE1iYYgP4bTlP8gzc3w==
   dependencies:
     "@chaitanyapotti/random-id" "^1.0.3"
     "@toruslabs/fetch-node-details" "^2.4.0"
