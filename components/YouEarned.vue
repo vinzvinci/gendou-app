@@ -1,241 +1,223 @@
 <template>
-  <a-layout class="layout">
-    <Header />
-    <a-layout-content class="content">
-      <section class="your-prize">
-        <div class="result">
-          <p class="message display-5">You can claim now</p>
-          <p class="prize">100 DEV</p>
-          <p class="usd display-6">$100 in USD</p>
-        </div>
-        <div class="patron-wrapper">
-          <p class="title display-3">Become an OSS Patron!</p>
-          <p class="description display-6">
-            When you support an OSS project by staking DEV tokens,<br />
-            you earn XX% more DEV per year.
+  <div>
+    <section class="your-prize">
+      <div class="result">
+        <p class="message display-5">You can claim now</p>
+        <p class="prize">100 DEV</p>
+        <p class="usd display-6">$100 in USD</p>
+      </div>
+      <div class="patron-wrapper">
+        <p class="title display-3">Become an OSS Patron!</p>
+        <p class="description display-6">
+          When you support an OSS project by staking DEV tokens,<br />
+          you earn XX% more DEV per year.
+        </p>
+      </div>
+    </section>
+
+    <section class="stakes-social">
+      <div class="card-wrapper">
+        <a-row
+          :gutter="[
+            { xs: 0, sm: 0, md: 24, lg: 24 },
+            { xs: 24, sm: 24, md: 0, lg: 0 },
+          ]"
+        >
+          <a-col :sm="24" :md="8">
+            <a-card class="card">
+              <div class="card-header">
+                <p class="title display-5">Sigma</p>
+                <img src="/image/icon01.png" alt="Sigma" class="oss-logo" />
+              </div>
+              <p class="description display-6">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                do eiusmod tempor incididunt ut labore et dolore magna aliqua...
+              </p>
+              <p class="owner display-5">Happer</p>
+              <p class="roll display-6">Creator</p>
+              <div class="status-wrapper">
+                <div class="funding">
+                  <p class="description display-6">Project's funding</p>
+                  <p class="number display-5">90,027 DEV</p>
+                </div>
+                <div class="staked">
+                  <p class="description display-6">Total staked</p>
+                  <p class="number display-5">24 DEV</p>
+                </div>
+              </div>
+              <div class="button-wrapper">
+                <a-button type="default" class="button display-5"
+                  >Stake
+                </a-button>
+              </div>
+            </a-card>
+          </a-col>
+          <a-col :sm="24" :md="8">
+            <a-card class="card">
+              <div class="card-header">
+                <p class="title display-5">Sigma</p>
+                <img src="/image/icon01.png" alt="Sigma" class="oss-logo" />
+              </div>
+              <p class="description display-6">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua...
+              </p>
+              <p class="owner display-5">Happer</p>
+              <p class="roll display-6">Creator</p>
+              <div class="status-wrapper">
+                <div class="funding">
+                  <p class="description display-6">Project's funding</p>
+                  <p class="number display-5">90,027 DEV</p>
+                </div>
+                <div class="staked">
+                  <p class="description display-6">Total staked</p>
+                  <p class="number display-5">24 DEV</p>
+                </div>
+              </div>
+              <div class="button-wrapper">
+                <a-button type="default" class="button display-5"
+                  >Stake
+                </a-button>
+              </div>
+            </a-card>
+          </a-col>
+          <a-col :sm="24" :md="8">
+            <a-card class="card">
+              <div class="card-header">
+                <p class="title display-5">Sigma</p>
+                <img src="/image/icon01.png" alt="Sigma" class="oss-logo" />
+              </div>
+              <p class="description display-6">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua...
+              </p>
+              <p class="owner display-5">Happer</p>
+              <p class="roll display-6">Creator</p>
+              <div class="status-wrapper">
+                <div class="funding">
+                  <p class="description display-6">Project's funding</p>
+                  <p class="number display-5">90,027 DEV</p>
+                </div>
+                <div class="staked">
+                  <p class="description display-6">Total staked</p>
+                  <p class="number display-5">24 DEV</p>
+                </div>
+              </div>
+              <div class="button-wrapper">
+                <a-button type="default" class="button display-5"
+                  >Stake
+                </a-button>
+              </div>
+            </a-card>
+          </a-col>
+        </a-row>
+      </div>
+      <p class="sub-title display-5">Explore the 1,600 OSS projects on</p>
+      <img src="/image/pic04.png" alt="stakes social" class="logo" />
+      <div class="explore-button-wrapper">
+        <a-button type="default" class="explore-button display-5"
+          >Explore</a-button
+        >
+      </div>
+    </section>
+
+    <div class="section-border"></div>
+
+    <section class="join-us">
+      <p class="section-title display-6">Join us</p>
+      <div class="join-us-wrapper">
+        <p class="display-4">Apply your OSS Project!</p>
+        <div class="description-wrapper">
+          <p class="join-us-description display-6">
+            Offer your patrons an additional incentive to support your OSS<br />
+            project by allowing them to collect an interest rate on the DEV they
+            stake.
           </p>
-        </div>
-      </section>
-
-      <section class="stakes-social">
-        <div class="card-wrapper">
-          <a-row
-            :gutter="[
-              { xs: 0, sm: 0, md: 24, lg: 24 },
-              { xs: 24, sm: 24, md: 0, lg: 0 },
-            ]"
-          >
-            <a-col :sm="24" :md="8">
-              <a-card class="card">
-                <div class="card-header">
-                  <p class="title display-5">Sigma</p>
-                  <img src="/image/icon01.png" alt="Sigma" class="oss-logo" />
-                </div>
-                <p class="description display-6">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do do eiusmod tempor incididunt ut labore et dolore magna
-                  aliqua...
-                </p>
-                <p class="owner display-5">Happer</p>
-                <p class="roll display-6">Creator</p>
-                <div class="status-wrapper">
-                  <div class="funding">
-                    <p class="description display-6">Project's funding</p>
-                    <p class="number display-5">90,027 DEV</p>
-                  </div>
-                  <div class="staked">
-                    <p class="description display-6">Total staked</p>
-                    <p class="number display-5">24 DEV</p>
-                  </div>
-                </div>
-                <div class="button-wrapper">
-                  <a-button type="default" class="button display-5"
-                    >Stake
-                  </a-button>
-                </div>
-              </a-card>
-            </a-col>
-            <a-col :sm="24" :md="8">
-              <a-card class="card">
-                <div class="card-header">
-                  <p class="title display-5">Sigma</p>
-                  <img src="/image/icon01.png" alt="Sigma" class="oss-logo" />
-                </div>
-                <p class="description display-6">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna
-                  aliqua...
-                </p>
-                <p class="owner display-5">Happer</p>
-                <p class="roll display-6">Creator</p>
-                <div class="status-wrapper">
-                  <div class="funding">
-                    <p class="description display-6">Project's funding</p>
-                    <p class="number display-5">90,027 DEV</p>
-                  </div>
-                  <div class="staked">
-                    <p class="description display-6">Total staked</p>
-                    <p class="number display-5">24 DEV</p>
-                  </div>
-                </div>
-                <div class="button-wrapper">
-                  <a-button type="default" class="button display-5"
-                    >Stake
-                  </a-button>
-                </div>
-              </a-card>
-            </a-col>
-            <a-col :sm="24" :md="8">
-              <a-card class="card">
-                <div class="card-header">
-                  <p class="title display-5">Sigma</p>
-                  <img src="/image/icon01.png" alt="Sigma" class="oss-logo" />
-                </div>
-                <p class="description display-6">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna
-                  aliqua...
-                </p>
-                <p class="owner display-5">Happer</p>
-                <p class="roll display-6">Creator</p>
-                <div class="status-wrapper">
-                  <div class="funding">
-                    <p class="description display-6">Project's funding</p>
-                    <p class="number display-5">90,027 DEV</p>
-                  </div>
-                  <div class="staked">
-                    <p class="description display-6">Total staked</p>
-                    <p class="number display-5">24 DEV</p>
-                  </div>
-                </div>
-                <div class="button-wrapper">
-                  <a-button type="default" class="button display-5"
-                    >Stake
-                  </a-button>
-                </div>
-              </a-card>
-            </a-col>
-          </a-row>
-        </div>
-        <p class="sub-title display-5">Explore the 1,600 OSS projects on</p>
-        <img src="/image/pic04.png" alt="stakes social" class="logo" />
-        <div class="explore-button-wrapper">
-          <a-button type="default" class="explore-button display-5"
-            >Explore</a-button
-          >
-        </div>
-      </section>
-
-      <div class="section-border"></div>
-
-      <section class="join-us">
-        <p class="section-title display-6">Join us</p>
-        <div class="join-us-wrapper">
-          <p class="display-4">Apply your OSS Project!</p>
-          <div class="description-wrapper">
-            <p class="join-us-description display-6">
-              Offer your patrons an additional incentive to support your OSS<br />
-              project by allowing them to collect an interest rate on the DEV
-              they stake.
-            </p>
-            <a href="/" class="more display-6">Learn more</a>
-          </div>
-        </div>
-        <div class="join-us-button-wrapper">
-          <a-button type="default" class="join-us-button display-5"
-            >Apply</a-button
-          >
-        </div>
-      </section>
-
-      <div class="section-border"></div>
-
-      <section class="learn">
-        <p class="section-title">Learn</p>
-        <div class="card-wrapper">
-          <a-row
-            :gutter="[
-              { xs: 0, sm: 0, md: 24, lg: 24 },
-              { xs: 24, sm: 24, md: 0, lg: 0 },
-            ]"
-          >
-            <a-col :sm="24" :md="8">
-              <div class="card">
-                <div>
-                  <div class="card-header">
-                    <p class="title display-4">Dev Protocol</p>
-                  </div>
-                  <p class="learn-description display-6">
-                    Offer your patrons an additional incentive to support your
-                    OSS project by allowing them to collect an interest rate on
-                    the DEV they stake.
-                  </p>
-                </div>
-                <a href="/" class="link display-6">devprotocol.xyz</a>
-              </div>
-            </a-col>
-            <a-col :sm="24" :md="8">
-              <div class="card">
-                <div>
-                  <div class="card-header">
-                    <p class="title display-4">Protocol</p>
-                  </div>
-                  <p class="learn-description display-6">
-                    Dev Protocol is designed as a protocol, unlike a web service
-                    or platform. To learn more about it, read this blog post.
-                  </p>
-                </div>
-                <a href="/" class="link display-6">Learn more</a>
-              </div>
-            </a-col>
-            <a-col :sm="24" :md="8">
-              <div class="card">
-                <div>
-                  <div class="card-header">
-                    <p class="title display-4">Ethereum</p>
-                  </div>
-                  <p class="learn-description display-6">
-                    Visit Ethereum’s official documentation to learn more about
-                    Ethereum.
-                  </p>
-                </div>
-                <a href="/" class="link display-6">Ethereum Whitepaper</a>
-              </div>
-            </a-col>
-          </a-row>
-        </div>
-      </section>
-
-      <div class="section-border"></div>
-    </a-layout-content>
-    <a-layout-footer class="footer">
-      <div class="footer-wrapper">
-        <img src="/image/logo01.png" alt="Dev Protocol" class="footer-logo" />
-        <div class="sponsored">
-          <img src="/image/pic05.png" alt="Sindre" class="photo" />
-          <div class="profile-wrapper">
-            <p class="by display-6">Sponsored by</p>
-            <p class="name display-4">Sindre Sorhus</p>
-            <p class="profile-description display-6">
-              The program is supported by <br />
-              a donation by Sindre Sorhus
-            </p>
-          </div>
-          <img src="/image/pic06.png" alt="heart" class="heart" />
+          <a href="/" class="more display-6">Learn more</a>
         </div>
       </div>
-    </a-layout-footer>
-  </a-layout>
+      <div class="join-us-button-wrapper">
+        <a-button type="default" class="join-us-button display-5"
+          >Apply</a-button
+        >
+      </div>
+    </section>
+
+    <div class="section-border"></div>
+
+    <section class="learn">
+      <p class="section-title">Learn</p>
+      <div class="card-wrapper">
+        <a-row
+          :gutter="[
+            { xs: 0, sm: 0, md: 24, lg: 24 },
+            { xs: 24, sm: 24, md: 0, lg: 0 },
+          ]"
+        >
+          <a-col :sm="24" :md="8">
+            <div class="card">
+              <div>
+                <div class="card-header">
+                  <p class="title display-4">Dev Protocol</p>
+                </div>
+                <p class="learn-description display-6">
+                  Offer your patrons an additional incentive to support your OSS
+                  project by allowing them to collect an interest rate on the
+                  DEV they stake.
+                </p>
+              </div>
+              <a href="/" class="link display-6">devprotocol.xyz</a>
+            </div>
+          </a-col>
+          <a-col :sm="24" :md="8">
+            <div class="card">
+              <div>
+                <div class="card-header">
+                  <p class="title display-4">Protocol</p>
+                </div>
+                <p class="learn-description display-6">
+                  Dev Protocol is designed as a protocol, unlike a web service
+                  or platform. To learn more about it, read this blog post.
+                </p>
+              </div>
+              <a href="/" class="link display-6">Learn more</a>
+            </div>
+          </a-col>
+          <a-col :sm="24" :md="8">
+            <div class="card">
+              <div>
+                <div class="card-header">
+                  <p class="title display-4">Ethereum</p>
+                </div>
+                <p class="learn-description display-6">
+                  Visit Ethereum’s official documentation to learn more about
+                  Ethereum.
+                </p>
+              </div>
+              <a href="/" class="link display-6">Ethereum Whitepaper</a>
+            </div>
+          </a-col>
+        </a-row>
+      </div>
+    </section>
+
+    <div class="section-border"></div>
+  </div>
 </template>
+
 <script>
-import { mapActions } from 'vuex'
+import { mapState } from 'vuex'
 
 export default {
-  async created() {
-    if ((await this.isConnected()) === false) this.$router.push('/')
+  computed: {
+    ...mapState({
+      isConnected: (state) => state.isConnected,
+    }),
   },
-  methods: {
-    ...mapActions(['isConnected']),
+  async created() {
+    if ((await this.isConnected) === false) {
+      this.$router.push('/')
+    }
   },
 }
 </script>
