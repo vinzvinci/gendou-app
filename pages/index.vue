@@ -48,6 +48,7 @@
     </a-layout>
   </div>
 </template>
+
 <script>
 import { mapActions, mapState } from 'vuex'
 import Lottie from '~/components/Lottie'
@@ -135,12 +136,7 @@ export default {
         ),
       })
     },
-    ...mapActions([
-      'getPrizeInfo',
-      'isGotPrize',
-      'stopLoadingConnectButton',
-      'getClaimInfo',
-    ]),
+    ...mapActions(['getPrizeInfo', 'stopLoadingConnectButton', 'getClaimInfo']),
   },
 }
 </script>

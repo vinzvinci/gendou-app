@@ -1,42 +1,60 @@
 <template>
-  <a-layout class="layout">
-    <Header />
-    <a-layout-content class="content">
-      <ClaimNow v-if="prize > 0 && !isGotPrize" />
-      <RewardNotFound v-else-if="!isGotPrize" />
-      <YouEarned v-else-if="prize > 0 && isGotPrize" />
-      <a-spin v-else />
-    </a-layout-content>
-  </a-layout>
+  <div>
+    <div class="result">
+      <p class="message display-5">You can claim now</p>
+      <p class="prize">{{ prize }} DEV</p>
+      <p class="usd display-6">${{ prizeUSD }} in USD</p>
+    </div>
+    <div class="section-border"></div>
+    <a-button
+      type="default"
+      class="claim-button display-5"
+      block
+      @click="linkToOtherWindow"
+      >Claim</a-button
+    >
+    <div class="next">
+      <p class="description display-6">
+        Stake your DEV for an OSS project to earn
+        {{ stakersAPY }}%/year<br />
+        and support an OSS project by {{ creatorsAPY }} %/year
+        <a href="/" class="how-to">How to stake?</a>
+      </p>
+    </div>
+  </div>
 </template>
 
 <script>
+import BigNumber from 'bignumber.js'
 import Web3 from 'web3'
-import { mapActions, mapState } from 'vuex'
-import { getAPY } from '~/utils/devkit'
+import { mapActions } from 'vuex'
+import { getStats, getAPY } from '~/utils/devkit'
 import { HTTP_PROVIDER_URL } from '~/utils/web3'
 
 export default {
   data() {
     return {
-      prize: 0,
+      prize: '',
+      prizeUSD: 0,
       creatorsAPY: '-', // NOTE: not use, now
       stakersAPY: '-',
     }
   },
-  computed: {
-    ...mapState({
-      isGotPrize: (state) => state.reward > 0,
-      isConnected: (state) => state.isConnected,
-    }),
-  },
   async created() {
-    if ((await this.isConnected) === false) this.$router.push('/')
+    if ((await this.isConnected()) === false) this.$router.push('/')
   },
   async mounted() {
     try {
       const prize = await this.getPrize()
+
       this.prize = prize
+
+      const { devPrice } = await getStats()
+
+      this.prizeUSD = new BigNumber(prize)
+        .multipliedBy(new BigNumber(devPrice))
+        .dp(0)
+        .toNumber()
 
       const web3 = new Web3(HTTP_PROVIDER_URL)
       const { apy, creators } = await getAPY(web3)
@@ -47,12 +65,16 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['getPrize']),
+    async linkToOtherWindow() {
+      const url = await this.getClaimUrl()
+      window.open(url, '_blank')
+      this.$router.push('/prize')
+    },
+    ...mapActions(['isConnected', 'getPrize', 'getClaimUrl']),
   },
 }
 </script>
-
-<style lang="scss" scoped>
+<style scoped lang="scss">
 .content {
   padding: 0 200px;
 }

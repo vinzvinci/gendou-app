@@ -12,6 +12,12 @@ export const state = () => ({
   claimUrl: '',
 })
 
+export const getters = {
+  getClaimUrl: (state) => state.claimUrl,
+  getIsConnected: (state) => state.isConnected,
+  isGotPrize: (state) => state.reward > 0,
+}
+
 export const mutations = {
   setIsConnected: (state, value) => (state.isConnected = value),
   setAccount: (state, value) => (state.account = value),
@@ -25,6 +31,7 @@ export const mutations = {
 }
 
 const GET_GITHUB_USER_API_URL = 'https://api.github.com/user/'
+
 const fetchGitHubUserName = async (axios, githubUserId) => {
   const url = GET_GITHUB_USER_API_URL + githubUserId
   const res = await axios.get(url)
@@ -46,7 +53,7 @@ const fetchClaimUrl = async (web3, axios, githubUserId, address) => {
   const url = GET_GENDOU_API_URL + `v1/findClaimUrl`
 
   try {
-    // Todo パラメーターが変わる
+    // TODO: change parameter
     return await axios.post(url, {
       github_id: githubUserId,
       signature,
@@ -66,22 +73,18 @@ export const actions = {
     commit('setAccount', account)
     commit('setUserInfo', userInfo)
     if (userInfo) {
-      // Todo TorusでGithubログインを選択するとエラーになるのでハードコーディングする
-      // commit('setGitHubUserName', 'kazu80')
-      commit('setGitHubUserName', 'git-id1')
-
-      /*
       const verifierId = userInfo.verifierId
       const githubUserId = verifierId.split('github|')[1]
       if (!githubUserId) {
-        return
+        return { error: 'invalid github user id' }
       }
 
       const userName = await fetchGitHubUserName(this.$axios, githubUserId)
       if (userName) {
         commit('setGitHubUserName', userName)
+      } else {
+        return { error: 'invalid github user name' }
       }
-       */
     }
   },
   async getTorusUserInfo({ commit }) {
@@ -126,15 +129,6 @@ export const actions = {
   getPrize({ state }) {
     const decimalNumber = Math.pow(10, 18).toString()
     return BigNumber.from(state.reward).div(decimalNumber).toString()
-  },
-  getClaimUrl({ state }) {
-    return state.claimUrl
-  },
-  isGotPrize({ state }) {
-    return state.reward > 0
-  },
-  isConnected({ state }) {
-    return state.isConnected
   },
   startLoadingConnectButton({ commit }) {
     commit('setButtonLoadingConnect', true)
