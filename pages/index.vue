@@ -42,7 +42,7 @@
           </div>
         </div>
         <div class="button-wrapper">
-          <Connect @isConnectTorusWallet="handleConnectTorusWallet" />
+          <ConnectGitHubApp />
         </div>
       </a-layout-content>
     </a-layout>
@@ -50,12 +50,13 @@
 </template>
 
 <script>
+import Vue from 'vue'
 import { mapActions, mapState } from 'vuex'
 import Lottie from '~/components/Lottie'
 
 import * as animationData from '~/assets/animationTest.json'
 
-export default {
+export default Vue.extend({
   components: {
     Lottie,
   },
@@ -66,10 +67,15 @@ export default {
       animationStart: false,
     }
   },
-  computed: mapState({
-    isConnected: (state) => state.isConnected,
-    githubUserName: (state) => state.githubUserName,
-  }),
+  fetch() {
+    this.generateReuqestState()
+  },
+  computed: {
+    ...mapState({
+      isConnected: (state) => state.isConnected,
+      githubUserName: (state) => state.githubUserName,
+    }),
+  },
   methods: {
     async handleConnectTorusWallet(res) {
       if (res === false) {
@@ -137,9 +143,13 @@ export default {
       })
     },
     ...mapActions(['getPrizeInfo', 'stopLoadingConnectButton', 'getClaimInfo']),
+    ...mapActions({
+      generateReuqestState: 'github/generateReuqestState',
+    }),
   },
-}
+})
 </script>
+
 <style lang="scss">
 body {
   background: url('/image/pic09.jpg') no-repeat;
