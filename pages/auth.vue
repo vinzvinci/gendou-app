@@ -23,7 +23,7 @@ export default Vue.extend({
     if (this.$route.query.error) {
       console.log(this.$route.query.error)
     } else {
-      this.$router.push('/')
+      this.$router.push('/claim')
     }
   },
   methods: {

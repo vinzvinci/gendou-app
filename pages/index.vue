@@ -51,7 +51,7 @@
 
 <script>
 import Vue from 'vue'
-import { mapActions, mapState } from 'vuex'
+import { mapActions } from 'vuex'
 import Lottie from '~/components/Lottie'
 
 import * as animationData from '~/assets/animationTest.json'
@@ -62,19 +62,12 @@ export default Vue.extend({
   },
   data() {
     return {
-      defaultOptions: { animationData },
-      animationSpeed: 1,
       animationStart: false,
+      defaultOptions: { animationData },
     }
   },
   fetch() {
     this.generateReuqestState()
-  },
-  computed: {
-    ...mapState({
-      isConnected: (state) => state.isConnected,
-      githubUserName: (state) => state.githubUserName,
-    }),
   },
   methods: {
     handleStart() {
@@ -83,15 +76,8 @@ export default Vue.extend({
     handleComplete() {
       this.$router.push(`/claim`)
     },
-    openNotificationWithIcon(type, message, description) {
-      this.$notification[type]({
-        message,
-        description,
-        duration: 0,
-      })
-    },
-    ...mapActions(['getPrizeInfo', 'stopLoadingConnectButton', 'getClaimInfo']),
     ...mapActions({
+      getPrizeInfo: 'getPrizeInfo',
       generateReuqestState: 'github/generateReuqestState',
     }),
   },

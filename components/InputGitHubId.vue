@@ -19,6 +19,7 @@
 
 <script>
 import Vue from 'vue'
+import { mapActions } from 'vuex'
 
 export default Vue.extend({
   data() {
@@ -40,17 +41,33 @@ export default Vue.extend({
   },
   methods: {
     submit() {
-      this.$refs.inputForm.validate((valid) => {
-        if (valid) {
-          console.log('form value: ', this.form.githubId)
-
-          // TODO: request info API
-
-          // emit door open
-          this.$emit('startCallback')
+      this.$refs.inputForm.validate(async (valid) => {
+        if (!valid) {
+          return
         }
+        console.log('form value: ', this.form.githubId)
+
+        const key = 'fetch-info'
+        this.$message.loading({
+          content: 'fetch data...',
+          key,
+          duration: 0,
+        })
+
+        // TODO: request info API
+        await this.getPrizeInfo(this.form.githubId)
+
+        this.$message.success({
+          content: 'Success',
+          key,
+          duration: 1,
+        })
+
+        // emit door open
+        this.$emit('startCallback')
       })
     },
+    ...mapActions(['getPrizeInfo']),
   },
 })
 </script>

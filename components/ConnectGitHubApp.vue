@@ -1,7 +1,7 @@
 <template>
   <a :href="githubAuthUrl">
     <a-button type="default" class="button display-5">
-      Connect to Github App
+      Authenticate and Get Claim URL
     </a-button>
   </a>
 </template>
