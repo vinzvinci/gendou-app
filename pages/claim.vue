@@ -47,9 +47,6 @@ export default {
       isConnected: (state) => state.isConnected,
     }),
   },
-  async created() {
-    if ((await this.isConnected) === false) this.$router.push('/')
-  },
   async mounted() {
     try {
       const prize = await this.getPrize()

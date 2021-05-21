@@ -9,7 +9,7 @@
     />
     <a-layout class="layout">
       <Header />
-      <a-layout-content class="content" :class="{ active: animationStart }">
+      <a-layout-content class="content">
         <div class="information">
           <div class="message">
             <p class="welcome display-3">
@@ -42,7 +42,7 @@
           </div>
         </div>
         <div class="input-wrapper">
-          <InputGitHubId />
+          <InputGitHubId @startCallback="handleStart" />
         </div>
       </a-layout-content>
     </a-layout>
@@ -77,69 +77,17 @@ export default Vue.extend({
     }),
   },
   methods: {
-    async handleConnectTorusWallet(res) {
-      if (res === false) {
-        await this.stopLoadingConnectButton()
-        this.infoGithubAccount()
-        return
-      }
-
-      try {
-        // await this.getPrizeInfo()
-        await this.getClaimInfo()
-
-        // The door animation start
-        this.animationStart = true
-      } catch (e) {
-        await this.stopLoadingConnectButton()
-        await this.$torus.cleanUp()
-
-        this.openNotificationWithIcon(
-          'error',
-          'An error has occurred',
-          'Please try again after a while'
-        )
-        console.error(e.message)
-      }
-
-      await this.stopLoadingConnectButton()
-    },
-    handleAnimationStart() {
+    handleStart() {
       this.animationStart = true
     },
-    async handleComplete() {
-      if (await this.isGotPrize()) {
-        this.$router.push('/result01')
-      } else {
-        this.$router.push('/result02')
-      }
+    handleComplete() {
+      this.$router.push(`/claim`)
     },
     openNotificationWithIcon(type, message, description) {
       this.$notification[type]({
         message,
         description,
         duration: 0,
-      })
-    },
-    infoGithubAccount() {
-      this.$info({
-        title: 'Github account connect error',
-        content: (
-          <div>
-            <p>
-              Click "More Options" to select Github.
-              <br />
-              <br />
-              <img src="/image/pic07.png" style="width: 100%" />
-              <br />
-              <br />
-              Then click the Github icon from the newly added icons
-              <br />
-              <br />
-              <img src="/image/pic08.png" style="width: 100%" />
-            </p>
-          </div>
-        ),
       })
     },
     ...mapActions(['getPrizeInfo', 'stopLoadingConnectButton', 'getClaimInfo']),

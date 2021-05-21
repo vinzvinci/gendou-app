@@ -1,13 +1,20 @@
 <template>
-  <form @submit.prevent="submit">
-    <a-input
-      v-model="githubId"
-      type="text"
-      class="input display-5"
-      placeholder="Enter your GitHub ID"
-    >
-    </a-input>
-  </form>
+  <a-form-model
+    ref="inputForm"
+    :model="form"
+    :rules="rules"
+    @submit.prevent="submit"
+  >
+    <a-form-model-item prop="githubId">
+      <a-input
+        v-model="form.githubId"
+        type="text"
+        class="input display-5"
+        placeholder="Enter your GitHub ID"
+      >
+      </a-input>
+    </a-form-model-item>
+  </a-form-model>
 </template>
 
 <script>
@@ -16,13 +23,33 @@ import Vue from 'vue'
 export default Vue.extend({
   data() {
     return {
-      githubId: '',
+      form: { githubId: '' },
+      rules: {
+        githubId: [
+          {
+            required: true,
+            message: 'Please input your GitHub Id',
+            trigger: 'change',
+          },
+        ],
+      },
     }
+  },
+  beforeCreate() {
+    this.form = this.$form.createForm(this, { name: 'githubid-input' })
   },
   methods: {
     submit() {
-      // TODO: URL これでいいのか確認
-      this.$router.push(`/result/${this.githubId}`)
+      this.$refs.inputForm.validate((valid) => {
+        if (valid) {
+          console.log('form value: ', this.form.githubId)
+
+          // TODO: request info API
+
+          // emit door open
+          this.$emit('startCallback')
+        }
+      })
     },
   },
 })
