@@ -41,8 +41,8 @@
             </div>
           </div>
         </div>
-        <div class="button-wrapper">
-          <ConnectGitHubApp />
+        <div class="input-wrapper">
+          <InputGitHubId />
         </div>
       </a-layout-content>
     </a-layout>
@@ -285,13 +285,13 @@ body {
     }
   }
 
-  .button-wrapper {
+  .input-wrapper {
     display: flex;
     justify-content: center;
     margin-top: 6px;
     width: 100%;
 
-    .button {
+    .input {
       padding: 8px 24px;
       height: initial;
       color: #fff;
@@ -307,11 +307,11 @@ body {
   }
 
   @media (max-width: 576px) {
-    .button-wrapper {
+    .input-wrapper {
       margin-top: 0;
       padding-top: 30px;
 
-      .button {
+      .input {
         padding: 10px 15px;
         line-height: 100%;
       }
