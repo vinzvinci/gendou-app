@@ -4,20 +4,26 @@
 
 <script>
 import Vue from 'vue'
-import { mapActions, mapState } from 'vuex'
+import { mapActions, mapGetters, mapState } from 'vuex'
 
 export default Vue.extend({
+  layout: 'claim',
   computed: {
     ...mapState({
       requestState: (state) => state.github.requestState,
+    }),
+    ...mapGetters({
+      stateFromStorage: 'github/getStateFromStorage',
     }),
   },
   async mounted() {
     const code = this.$route.query.code
     const state = this.$route.query.state
 
-    // TODO: check state value
-    console.log(code, state, this.requestState)
+    console.log(code, state, this.requestState, this.stateFromStorage)
+    if (state !== this.stateFromStorage) {
+      throw new Error('invalid state value')
+    }
 
     await this.fetchClaimInfo(code)
     if (this.$route.query.error) {

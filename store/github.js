@@ -1,3 +1,6 @@
+import { v4 as uuidv4 } from 'uuid'
+import { fetchClaimUrl } from '~/utils/gendou-backend'
+
 const isConnected = false
 const username = ''
 const code = ''
@@ -15,13 +18,20 @@ export const mutations = {
   setRequestState: (state, value) => (state.requestState = value),
 }
 
+export const getters = {
+  getStateFromStorage: () => window.sessionStorage.getItem('github-app-state'),
+}
+
 export const actions = {
-  fetchClaimInfo({ commit }, code) {
-    // TODO: fetch new api with code
+  async fetchClaimInfo({ commit }, code) {
     commit('setCode', code)
+
+    const res = await fetchClaimUrl(this.$axios, code)
+    commit('setClaimUrl', res.data.claimUrl, { root: true })
   },
   generateReuqestState({ commit }) {
-    // TODO: use random param
-    commit('setRequestState', 'abc')
+    const state = uuidv4()
+    commit('setRequestState', state)
+    window.sessionStorage.setItem('github-app-state', state)
   },
 }
