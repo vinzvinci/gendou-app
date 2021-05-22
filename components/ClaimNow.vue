@@ -70,35 +70,8 @@ export default {
   },
 }
 </script>
-<style scoped lang="scss">
-.content {
-  padding: 0 200px;
-}
 
-@media (max-width: 576px) {
-  .content {
-    padding: 0 25px;
-  }
-}
-</style>
 <style lang="scss">
-body {
-  background: url('/image/background01.png');
-  background-position: center center;
-  background-size: auto 100%;
-}
-
-.layout {
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 0 156px;
-  width: 100%;
-  max-width: 1440px;
-  min-width: 375px;
-  background-color: transparent;
-}
-
 @media (max-width: 576px) {
   .layout {
     padding: 0 25px;
