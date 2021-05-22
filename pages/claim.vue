@@ -1,7 +1,7 @@
 <template>
   <div>
     <a-layout-content class="content">
-      <YouEarned v-if="prize > 0 && claimUrl !== ''" />
+      <ShowClaimUrl v-if="prize > 0 && claimUrl !== ''" />
       <ClaimNow v-else-if="prize > 0" />
       <RewardNotFound v-else />
     </a-layout-content>
