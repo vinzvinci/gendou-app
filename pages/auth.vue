@@ -20,14 +20,16 @@ export default Vue.extend({
     const code = this.$route.query.code
     const state = this.$route.query.state
 
-    console.log(code, state, this.requestState, this.stateFromStorage)
     if (state !== this.stateFromStorage) {
       throw new Error('invalid state value')
     }
 
     await this.fetchClaimInfo(code)
     if (this.$route.query.error) {
-      console.log(this.$route.query.error)
+      this.$message.error({
+        content: `Error: ${this.$route.query.error}`,
+        key: 'fetchtch-claim-info',
+      })
     } else {
       this.$router.push('/claim')
     }

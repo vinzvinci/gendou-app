@@ -21,12 +21,9 @@ export const mutations = {
 }
 
 export const actions = {
-  async getPrizeInfo({ commit, state }, githubId) {
+  async getPrizeInfo({ commit }, githubId) {
     commit('setGitHubId', githubId)
     const { data } = await fetchPrizeInfo(this.$axios, githubId)
-
-    commit('setReward', 100)
-    console.log(state.reward)
 
     if (data.reward) {
       commit('setReward', toNaturalNumber(data.reward))

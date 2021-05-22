@@ -54,7 +54,6 @@ export default Vue.extend({
           duration: 0,
         })
 
-        // TODO: request info API
         await this.getPrizeInfo(this.form.githubId)
 
         this.$message.success({
