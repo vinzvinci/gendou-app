@@ -2127,10 +2127,10 @@
   dependencies:
     deepmerge "^4.2.2"
 
-"@toruslabs/torus-embed@1.10.14":
-  version "1.10.14"
-  resolved "https://registry.yarnpkg.com/@toruslabs/torus-embed/-/torus-embed-1.10.14.tgz#ab948902112eee5db1e256428b6d0dc3e6331c53"
-  integrity sha512-UBPtjYMWH7hwvRt1Z5d6OrP+79cI8Fc/NW0+XwkdiEUxDRBsw1UZkWH7aGrj+GHQYPz2NVAR2KplsArsO6yS0Q==
+"@toruslabs/torus-embed@1.10.15":
+  version "1.10.15"
+  resolved "https://registry.yarnpkg.com/@toruslabs/torus-embed/-/torus-embed-1.10.15.tgz#9144ebea5079efb167bca28b7173f704acf64c91"
+  integrity sha512-5P95yTGO11bmLcaoE9lo7fYkaN2pI1l7TMNqHMtI0JY74OuS9QyrPtZ5v8R3QlrlRnYfM0OuI4hruiQp4qvq+g==
   dependencies:
     "@chaitanyapotti/random-id" "^1.0.3"
     "@toruslabs/fetch-node-details" "^2.6.1"
