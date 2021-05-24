@@ -46,4 +46,9 @@ export default {
   server: {
     host: '0.0.0.0',
   },
+
+  env: {
+    REDIRECT_URI: process.env.REDIRECT_URI,
+    GITHUB_CLIENT_ID: process.env.GITHUB_CLIENT_ID,
+  },
 }
