@@ -21,7 +21,7 @@
   "dependencies": {
     "@devprotocol/dev-kit": "4.4.1",
     "@ethersproject/bignumber": "5.2.0",
-    "@nuxtjs/axios": "5.13.1",
+    "@nuxtjs/axios": "5.13.4",
     "@toruslabs/torus-embed": "1.9.14",
     "ant-design-vue": "1.7.4",
     "bignumber.js": "^9.0.1",
