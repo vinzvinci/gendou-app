@@ -1216,10 +1216,10 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
-"@devprotocol/dev-kit@^4.4.0-0":
-  version "4.4.0-0"
-  resolved "https://registry.yarnpkg.com/@devprotocol/dev-kit/-/dev-kit-4.4.0-0.tgz#a99990a2cbf851fcc7cfdee41e6ab7ec7317e11b"
-  integrity sha512-VybNUKAukkmaSkZNjjHehlUrv+C73divPI6AR9BHuEhrlWF4pWbloUj7ExQxEvRqKEtJ6GByK5zx6TK+P0hwkw==
+"@devprotocol/dev-kit@4.4.1":
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/@devprotocol/dev-kit/-/dev-kit-4.4.1.tgz#508d46cb11565b148bcf09474786d4e44ce07cf7"
+  integrity sha512-+6r0c5q9LJO81DyiXdhKt2ETH5rhbtOYfWElYr/v0fMHK34JRNbcYwkvp5OnhbhGGbU5Cj8oJ2T6LQ3/64LKHw==
   dependencies:
     "@types/bent" "^7.3.1"
     async-ray "^3.2.0"

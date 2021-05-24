@@ -19,7 +19,7 @@
     "*.{css,vue}": "stylelint"
   },
   "dependencies": {
-    "@devprotocol/dev-kit": "^4.4.0-0",
+    "@devprotocol/dev-kit": "4.4.1",
     "@ethersproject/bignumber": "5.2.0",
     "@nuxtjs/axios": "5.13.1",
     "@toruslabs/torus-embed": "1.9.14",
