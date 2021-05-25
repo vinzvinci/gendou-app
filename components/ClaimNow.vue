@@ -26,7 +26,7 @@
 <script>
 import BigNumber from 'bignumber.js'
 import Web3 from 'web3'
-import { mapActions, mapState } from 'vuex'
+import { mapState } from 'vuex'
 import { getStats, getAPY } from '~/utils/devkit'
 import { HTTP_PROVIDER_URL } from '~/utils/web3'
 
@@ -66,7 +66,6 @@ export default {
       window.open(this.claimUrl, '_blank')
       this.$router.push('/claim')
     },
-    ...mapActions(['getClaimInfo']),
   },
 }
 </script>

@@ -1,4 +1,4 @@
-import { fetchClaimUrl, fetchPrizeInfo } from '~/utils/gendou-backend'
+import { fetchPrizeInfo } from '~/utils/gendou-backend'
 import { toNaturalNumber } from '~/utils/bignumber'
 
 export const state = () => ({
@@ -27,15 +27,6 @@ export const actions = {
 
     if (data.reward) {
       commit('setReward', toNaturalNumber(data.reward))
-      commit('setRewardFindAt', data.rewardFindAt)
-    }
-  },
-  async getClaimInfo({ commit }, code) {
-    const { data } = await fetchClaimUrl(this.$axios, code)
-
-    if (data.reward) {
-      commit('setReward', data.reward)
-      commit('setClaimUrl', data.claim_url)
     }
   },
 }
