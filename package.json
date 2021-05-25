@@ -24,7 +24,7 @@
     "@nuxtjs/axios": "5.13.4",
     "ant-design-vue": "1.7.4",
     "bignumber.js": "9.0.1",
-    "core-js": "3.9.1",
+    "core-js": "3.12.1",
     "nuxt": "2.15.3",
     "nuxt-client-init-module": "0.3.0",
     "uuid": "8.3.2",
