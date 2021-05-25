@@ -52,7 +52,7 @@
 import { mapActions, mapState } from 'vuex'
 import Lottie from '~/components/Lottie'
 
-import * as animationData from '~/assets/animationTest.json'
+import * as animationData from '~/assets/lottie-data.json'
 
 export default {
   components: {
