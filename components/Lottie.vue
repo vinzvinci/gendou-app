@@ -4,6 +4,7 @@
 
 <script>
 import lottie from 'lottie-web'
+
 export default {
   props: {
     options: {
@@ -20,15 +21,13 @@ export default {
       defaults: false,
     },
   },
-
   watch: {
-    start(val, old) {
+    start(val, _old) {
       if (val === true) {
         this.anim.play()
       }
     },
   },
-
   mounted() {
     this.anim = lottie.loadAnimation({
       container: this.$refs.lavContainer,
@@ -38,13 +37,13 @@ export default {
       animationData: this.options.animationData.default,
       rendererSettings: this.options.rendererSettings,
     })
-    this.$emit('animCreated', this.anim)
     this.anim.addEventListener('complete', () => {
       this.$emit('complete', true)
     })
   },
 }
 </script>
+
 <style lang="scss" scoped>
 .door-animation {
   width: 100%;

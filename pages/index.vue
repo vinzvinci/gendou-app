@@ -9,7 +9,7 @@
     />
     <a-layout class="layout">
       <Header />
-      <a-layout-content class="content" :class="{ active: animationStart }">
+      <a-layout-content class="content">
         <div class="information">
           <div class="message">
             <p class="welcome display-3">
@@ -41,124 +41,45 @@
             </div>
           </div>
         </div>
-        <div class="button-wrapper">
-          <Connect @isConnectTorusWallet="handleConnectTorusWallet" />
+        <div class="input-wrapper">
+          <InputGitHubId @startCallback="handleStart" />
         </div>
       </a-layout-content>
     </a-layout>
   </div>
 </template>
+
 <script>
-import { mapActions, mapState } from 'vuex'
+import Vue from 'vue'
 import Lottie from '~/components/Lottie'
 
 import * as animationData from '~/assets/lottie-data.json'
 
-export default {
+export default Vue.extend({
   components: {
     Lottie,
   },
   data() {
     return {
-      defaultOptions: { animationData },
-      animationSpeed: 1,
       animationStart: false,
+      defaultOptions: { animationData },
     }
   },
-  computed: mapState({
-    isConnected: (state) => state.isConnected,
-    githubUserName: (state) => state.githubUserName,
-  }),
   methods: {
-    async handleConnectTorusWallet(res) {
-      if (res === false) {
-        await this.stopLoadingConnectButton()
-        this.infoGithubAccount()
-        return
-      }
-
-      try {
-        // await this.getPrizeInfo()
-        await this.getClaimInfo()
-
-        // The door animation start
-        this.animationStart = true
-      } catch (e) {
-        await this.stopLoadingConnectButton()
-        await this.$torus.cleanUp()
-
-        this.openNotificationWithIcon(
-          'error',
-          'An error has occurred',
-          'Please try again after a while'
-        )
-        console.error(e.message)
-      }
-
-      await this.stopLoadingConnectButton()
-    },
-    handleAnimationStart() {
+    handleStart() {
       this.animationStart = true
     },
-    async handleComplete() {
-      if (await this.isGotPrize()) {
-        this.$router.push('/result01')
-      } else {
-        this.$router.push('/result02')
-      }
+    handleComplete() {
+      this.$router.push(`/claim`)
     },
-    openNotificationWithIcon(type, message, description) {
-      this.$notification[type]({
-        message,
-        description,
-        duration: 0,
-      })
-    },
-    infoGithubAccount() {
-      this.$info({
-        title: 'Github account connect error',
-        content: (
-          <div>
-            <p>
-              Click "More Options" to select Github.
-              <br />
-              <br />
-              <img src="/image/pic07.png" style="width: 100%" />
-              <br />
-              <br />
-              Then click the Github icon from the newly added icons
-              <br />
-              <br />
-              <img src="/image/pic08.png" style="width: 100%" />
-            </p>
-          </div>
-        ),
-      })
-    },
-    ...mapActions([
-      'getPrizeInfo',
-      'isGotPrize',
-      'stopLoadingConnectButton',
-      'getClaimInfo',
-    ]),
   },
-}
+})
 </script>
-<style lang="scss">
+
+<style lang="scss" scoped>
 body {
   background: url('/image/pic09.jpg') no-repeat;
   background-size: 100% auto;
-}
-
-.layout {
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 0 156px;
-  width: 100%;
-  max-width: 1440px;
-  min-width: 375px;
-  background-color: transparent;
 }
 
 @media (max-width: 576px) {
@@ -186,134 +107,5 @@ body {
 .active {
   transition: opacity 0.4s ease-out;
   opacity: 0;
-}
-
-.content {
-  position: relative;
-  padding-bottom: 246px;
-
-  .information {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 134px;
-    z-index: 1;
-
-    .message {
-      .welcome {
-        margin-bottom: 60px;
-        font-weight: bold;
-        font-family: 'Whyte Inktrap', sans-serif;
-      }
-    }
-
-    .sponsored {
-      display: flex;
-      .pic {
-        margin-right: 25px;
-
-        img {
-          width: 72px;
-          height: 72px;
-        }
-      }
-      .profile {
-        .row-01 {
-          display: flex;
-          justify-content: space-between;
-
-          img {
-            width: 20px;
-            height: 24px;
-          }
-        }
-        .row-02 {
-          margin-bottom: 8px;
-          font-family: 'Whyte Inktrap', sans-serif;
-        }
-        .row-03 {
-          color: #999;
-        }
-      }
-    }
-  }
-
-  @media (max-width: 576px) {
-    .information {
-      flex-direction: column;
-      margin-top: 140px;
-
-      .message {
-        margin-bottom: 20px;
-        text-align: center;
-
-        .welcome {
-          margin-bottom: 20px;
-        }
-      }
-
-      .sponsored {
-        margin-bottom: 0;
-
-        .pic {
-          margin-right: 15px;
-
-          img {
-            width: 50px;
-            height: 50px;
-          }
-        }
-        .profile {
-          .row-01 {
-            img {
-              width: 20px;
-              height: 24px;
-            }
-          }
-          .row-02 {
-            margin-bottom: 0;
-          }
-        }
-      }
-    }
-  }
-
-  .button-wrapper {
-    display: flex;
-    justify-content: center;
-    margin-top: 6px;
-    width: 100%;
-
-    .button {
-      padding: 8px 24px;
-      height: initial;
-      color: #fff;
-      background-color: #0a0a0a;
-      line-height: 32px;
-      border-radius: 0;
-      border: none;
-      cursor: pointer;
-      &:hover {
-        border: none;
-      }
-    }
-  }
-
-  @media (max-width: 576px) {
-    .button-wrapper {
-      margin-top: 0;
-      padding-top: 30px;
-
-      .button {
-        padding: 10px 15px;
-        line-height: 100%;
-      }
-    }
-  }
-}
-
-.light-blue {
-  color: #00d0fd;
 }
 </style>

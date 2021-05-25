@@ -1,59 +1,54 @@
 <template>
-  <a-layout class="layout">
-    <Header />
-    <a-layout-content class="content">
-      <div class="result">
-        <p class="message display-5">You can claim now</p>
-        <p class="prize">{{ prize }} DEV</p>
-        <p class="usd display-6">${{ prizeUSD }} in USD</p>
-      </div>
-      <div class="section-border"></div>
-      <a-button
-        type="default"
-        class="claim-button display-5"
-        block
-        @click="linkToOtherWindow"
-        >Claim</a-button
-      >
-      <div class="next">
-        <p class="description display-6">
-          Stake your DEV for an OSS project to earn
-          {{ stakersAPY }}%/year<br />
-          and support an OSS project by {{ creatorsAPY }} %/year
-          <a href="/" class="how-to">How to stake?</a>
-        </p>
-      </div>
-    </a-layout-content>
-  </a-layout>
+  <div>
+    <div class="result">
+      <p class="message display-5">You can claim now</p>
+      <p class="prize">{{ prize }} DEV</p>
+      <p class="usd display-6">${{ prizeUSD === 0 ? '-' : prizeUSD }} in USD</p>
+    </div>
+
+    <a-divider />
+
+    <div class="connect-github-app">
+      <ConnectGitHubApp />
+    </div>
+
+    <div class="next">
+      <p class="description display-6">
+        Stake your DEV for an OSS project to earn
+        {{ stakersAPY }}%/year<br />
+        and support an OSS project by {{ creatorsAPY }} %/year
+        <a href="/" class="how-to">How to stake?</a>
+      </p>
+    </div>
+  </div>
 </template>
+
 <script>
 import BigNumber from 'bignumber.js'
 import Web3 from 'web3'
-import { mapActions } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 import { getStats, getAPY } from '~/utils/devkit'
 import { HTTP_PROVIDER_URL } from '~/utils/web3'
 
 export default {
   data() {
     return {
-      prize: '',
       prizeUSD: 0,
       creatorsAPY: '-', // NOTE: not use, now
       stakersAPY: '-',
     }
   },
-  async created() {
-    if ((await this.isConnected()) === false) this.$router.push('/')
+  computed: {
+    ...mapState({
+      prize: (state) => state.reward,
+      claimUrl: (state) => state.claimUrl,
+    }),
   },
   async mounted() {
     try {
-      const prize = await this.getPrize()
-
-      this.prize = prize
-
       const { devPrice } = await getStats()
 
-      this.prizeUSD = new BigNumber(prize)
+      this.prizeUSD = new BigNumber(this.prize)
         .multipliedBy(new BigNumber(devPrice))
         .dp(0)
         .toNumber()
@@ -67,44 +62,16 @@ export default {
     }
   },
   methods: {
-    async linkToOtherWindow() {
-      const url = await this.getClaimUrl()
-      window.open(url, '_blank')
-      this.$router.push('/prize')
+    linkToOtherWindow() {
+      window.open(this.claimUrl, '_blank')
+      this.$router.push('/claim')
     },
-    ...mapActions(['isConnected', 'getPrize', 'getClaimUrl']),
+    ...mapActions(['getClaimInfo']),
   },
 }
 </script>
-<style scoped lang="scss">
-.content {
-  padding: 0 200px;
-}
 
-@media (max-width: 576px) {
-  .content {
-    padding: 0 25px;
-  }
-}
-</style>
 <style lang="scss">
-body {
-  background: url('/image/background01.png');
-  background-position: center center;
-  background-size: auto 100%;
-}
-
-.layout {
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 0 156px;
-  width: 100%;
-  max-width: 1440px;
-  min-width: 375px;
-  background-color: transparent;
-}
-
 @media (max-width: 576px) {
   .layout {
     padding: 0 25px;
@@ -135,18 +102,11 @@ body {
     }
   }
 
-  .section-border {
-    margin-bottom: 27px;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    border: 1px solid #fff;
-  }
-
-  .claim-button {
+  .connect-github-app {
     margin-bottom: 27px;
     height: initial;
     color: #fff;
+    text-align: center;
     background-color: #0a0a0a;
     line-height: 32px;
     border-radius: 0;
@@ -192,10 +152,6 @@ body {
       .usd {
         margin-bottom: 15px;
       }
-    }
-
-    .section-border {
-      margin-bottom: 15px;
     }
 
     .next {
