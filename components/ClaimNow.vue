@@ -3,10 +3,13 @@
     <div class="result">
       <p class="message display-5">You can claim now</p>
       <p class="prize">{{ prize }} DEV</p>
-      <p class="usd display-6">${{ prizeUSD === 0 ? '-' : prizeUSD }} in USD</p>
+      <p class="usd display-6">
+        <a-icon v-if="prizeUSD === 0" type="loading" />
+        <span v-else>${{ prizeUSD }}</span> in USD
+      </p>
     </div>
 
-    <a-divider />
+    <a-divider class="divider" />
 
     <div class="connect-github-app">
       <ConnectGitHubApp />
@@ -15,8 +18,11 @@
     <div class="next">
       <p class="description display-6">
         Stake your DEV for an OSS project to earn
-        {{ stakersAPY }}%/year<br />
-        and support an OSS project by {{ creatorsAPY }} %/year
+        <a-icon v-if="stakersAPY === 0" type="loading" />
+        <span v-else>{{ stakersAPY }}</span> %/year<br />
+        and support an OSS project by
+        <a-icon v-if="creatorsAPY === 0" type="loading" />
+        <span v-else>{{ creatorsAPY }}</span> %/year
         <a href="/" class="how-to">How to stake?</a>
       </p>
     </div>
@@ -34,8 +40,8 @@ export default {
   data() {
     return {
       prizeUSD: 0,
-      creatorsAPY: '-', // NOTE: not use, now
-      stakersAPY: '-',
+      creatorsAPY: 0, // NOTE: not use, now
+      stakersAPY: 0,
     }
   },
   computed: {
@@ -169,5 +175,9 @@ export default {
       }
     }
   }
+}
+
+.divider {
+  margin: 4.6rem 0;
 }
 </style>

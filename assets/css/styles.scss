@@ -1,19 +1,28 @@
-/* Whyte */
 @font-face {
   font-family: 'Whyte';
+  src: url('https://devstaticasset.azureedge.net/font/ABCWhyte-Regular.woff2')
+    format('woff2');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('../fonts/Whyte-Regular.otf') format('opentype');
 }
 
-/* Whyte Linktrap */
 @font-face {
-  font-family: 'Whytelnktrap';
-  font-style: normal;
-  font-weight: 700;
+  font-family: 'Whyte Inktrap';
+  src: url('https://devstaticasset.azureedge.net/font/ABCWhyteInktrap-Bold.woff2')
+    format('woff2');
+  font-style: bold;
+  font-weight: 900;
   font-display: swap;
-  src: url('../fonts/WhyteInktrap-Bold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Whyte Inktrap';
+  src: url('https://devstaticasset.azureedge.net/font/ABCWhyteInktrap-Regular.woff2')
+    format('woff2');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
 }
 
 *,
