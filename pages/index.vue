@@ -1,14 +1,6 @@
 <template>
   <div>
-    <lottie
-      class="lottie"
-      :options="defaultOptions"
-      :start="animationStart"
-      :width="0"
-      @complete="handleComplete"
-    />
     <a-layout class="layout">
-      <Header />
       <a-layout-content class="content">
         <div class="information">
           <div class="message">
@@ -51,26 +43,23 @@
 
 <script>
 import Vue from 'vue'
-import Lottie from '~/components/Lottie'
-
-import * as animationData from '~/assets/lottie-data.json'
+// import { mapActions } from 'vuex'
 
 export default Vue.extend({
-  components: {
-    Lottie,
+  created() {
+    this.unsubscribe = this.$store.subscribe((mutation) => {
+      if (mutation.type !== 'door/toggle' || mutation.payload !== true) {
+        return
+      }
+      this.$router.push(`/claim`)
+    })
   },
-  data() {
-    return {
-      animationStart: false,
-      defaultOptions: { animationData },
-    }
+  beforeDestroy() {
+    this.unsubscribe()
   },
   methods: {
     handleStart() {
-      this.animationStart = true
-    },
-    handleComplete() {
-      this.$router.push(`/claim`)
+      this.$store.dispatch('door/open', true)
     },
   },
 })
@@ -82,30 +71,149 @@ body {
   background-size: 100% auto;
 }
 
-@media (max-width: 576px) {
-  .layout {
-    padding: 0 25px;
-  }
-}
-
-.lottie {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 0;
-}
-
-@media (max-width: 576px) {
-  .lottie {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 0;
-  }
-}
-
 .active {
   transition: opacity 0.4s ease-out;
   opacity: 0;
+}
+
+.layout {
+  padding: 0 8rem;
+  background: transparent;
+  @media (max-width: 576px) {
+    padding: 0 2rem;
+  }
+}
+
+p {
+  margin: 0;
+}
+
+.content {
+  position: relative;
+  padding-bottom: 246px;
+
+  .information {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 134px;
+    z-index: 1;
+
+    .message {
+      .welcome {
+        margin-bottom: 60px;
+        font-weight: bold;
+        font-family: 'Whyte Inktrap', sans-serif;
+      }
+    }
+
+    .sponsored {
+      display: flex;
+      .pic {
+        margin-right: 25px;
+
+        img {
+          width: 72px;
+          height: 72px;
+        }
+      }
+      .profile {
+        .row-01 {
+          display: flex;
+          justify-content: space-between;
+
+          img {
+            width: 20px;
+            height: 24px;
+          }
+        }
+        .row-02 {
+          margin-bottom: 8px;
+          font-family: 'Whyte Inktrap', sans-serif;
+        }
+        .row-03 {
+          color: #999;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 576px) {
+    .information {
+      flex-direction: column;
+      margin-top: 140px;
+
+      .message {
+        margin-bottom: 20px;
+        text-align: center;
+
+        .welcome {
+          margin-bottom: 20px;
+        }
+      }
+
+      .sponsored {
+        margin-bottom: 0;
+
+        .pic {
+          margin-right: 15px;
+
+          img {
+            width: 50px;
+            height: 50px;
+          }
+        }
+        .profile {
+          .row-01 {
+            img {
+              width: 20px;
+              height: 24px;
+            }
+          }
+          .row-02 {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .input-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 6px;
+    width: 100%;
+
+    .input {
+      padding: 8px 24px;
+      height: initial;
+      color: #fff;
+      background-color: #0a0a0a;
+      line-height: 32px;
+      border-radius: 0;
+      border: none;
+      cursor: pointer;
+      &:hover {
+        border: none;
+      }
+    }
+  }
+
+  @media (max-width: 576px) {
+    .input-wrapper {
+      margin-top: 0;
+      padding-top: 30px;
+
+      .input {
+        padding: 10px 15px;
+        line-height: 100%;
+      }
+    }
+  }
+}
+
+.light-blue {
+  color: #00d0fd;
 }
 </style>

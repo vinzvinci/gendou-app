@@ -129,13 +129,7 @@ export default {
       text-align: center;
 
       .how-to {
-        position: absolute;
-        top: 0;
-        right: -148px;
-        transform: translateX(100%);
-        font-size: 16px;
-        line-height: 28px;
-        text-decoration: underline;
+        border-bottom: 3px solid;
       }
     }
   }
@@ -164,13 +158,6 @@ export default {
 
       .description {
         line-height: 20px;
-
-        .how-to {
-          display: block;
-          position: unset;
-          transform: unset;
-          padding-top: 20px;
-        }
       }
     }
   }

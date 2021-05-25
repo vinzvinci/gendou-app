@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <a-layout class="layout fadein">
     <a-layout-content class="content">
       <ShowClaimUrl v-if="prize > 0 && claimUrl !== ''" />
       <ClaimNow v-else-if="prize > 0" />
       <RewardNotFound v-else />
     </a-layout-content>
-  </div>
+  </a-layout>
 </template>
 
 <script>
@@ -16,7 +16,6 @@ import { getAPY } from '~/utils/devkit'
 import { HTTP_PROVIDER_URL } from '~/utils/web3'
 
 export default Vue.extend({
-  layout: 'claim',
   data() {
     return {
       creatorsAPY: '-', // NOTE: not use, now
@@ -35,6 +34,12 @@ export default Vue.extend({
     }),
   },
   async mounted() {
+    if (
+      this.$store.state.door.history.length === 0 &&
+      this.$store.state.door.closed
+    ) {
+      this.$store.dispatch('door/control', 'opened')
+    }
     try {
       const web3 = new Web3(HTTP_PROVIDER_URL)
       const { apy, creators } = await getAPY(web3)
@@ -55,11 +60,30 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .content {
   padding: 0 200px;
+  @media (max-width: 576px) {
+    padding: 0 25px;
+  }
 }
 
-@media (max-width: 576px) {
-  .content {
-    padding: 0 25px;
+.layout {
+  padding: 0 8rem;
+  background: transparent;
+  @media (max-width: 576px) {
+    padding: 0 2rem;
+  }
+}
+
+.fadein {
+  animation: fadeIn 1.8s;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.97);
+  }
+  to {
+    opacity: 100;
+    transform: translateY(0) scale(1);
   }
 }
 </style>

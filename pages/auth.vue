@@ -1,5 +1,8 @@
 <template>
-  <div>Please wait...</div>
+  <div>
+    <Header />
+    <div>Please wait...</div>
+  </div>
 </template>
 
 <script>

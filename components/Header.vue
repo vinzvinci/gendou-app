@@ -1,6 +1,8 @@
 <template>
   <a-page-header class="header">
-    <img src="/image/header-logo.png" alt="logo" />
+    <a href="/">
+      <img src="/image/header-logo.png" alt="logo" />
+    </a>
     <div class="right-content">
       <a href="/" class="display-4">QA</a>
     </div>
@@ -9,9 +11,7 @@
 
 <style lang="scss">
 .header {
-  padding-left: 0;
-  padding-right: 0;
-  background-color: transparent;
+  padding: 1rem 8rem;
 
   .ant-page-header-content {
     display: flex;
@@ -31,6 +31,7 @@
 
 @media (max-width: 576px) {
   .header {
+    padding: 1rem 2rem;
     .ant-page-header-content {
       img {
         width: 80px;

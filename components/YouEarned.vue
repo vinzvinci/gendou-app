@@ -222,13 +222,6 @@ export default {
 }
 </script>
 <style lang="scss">
-body {
-  background: url('/image/background01.png');
-  background-position: center top;
-  background-size: auto 799px;
-  background-repeat: repeat-x;
-}
-
 .layout {
   position: relative;
   left: 50%;
