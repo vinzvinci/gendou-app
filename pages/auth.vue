@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Header />
     <div>Please wait...</div>
   </div>
 </template>
@@ -10,7 +9,6 @@ import Vue from 'vue'
 import { mapActions, mapGetters, mapState } from 'vuex'
 
 export default Vue.extend({
-  layout: 'claim',
   computed: {
     ...mapState({
       requestState: (state) => state.github.requestState,
