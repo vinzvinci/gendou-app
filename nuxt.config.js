@@ -50,5 +50,6 @@ export default {
   env: {
     REDIRECT_URI: process.env.REDIRECT_URI,
     GITHUB_CLIENT_ID: process.env.GITHUB_CLIENT_ID,
+    GET_GENDOU_API_URL: process.env.GET_GENDOU_API_URL,
   },
 }

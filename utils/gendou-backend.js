@@ -1,4 +1,4 @@
-const GET_GENDOU_API_URL = 'http://localhost:8088/v1'
+const { GET_GENDOU_API_URL } = process.env
 
 export const fetchPrizeInfo = async (axios, githubUserId) => {
   const url = GET_GENDOU_API_URL + `/info/${githubUserId}`
