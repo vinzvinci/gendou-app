@@ -90,7 +90,6 @@ p {
 
 .content {
   position: relative;
-  padding-bottom: 246px;
 
   .information {
     position: relative;

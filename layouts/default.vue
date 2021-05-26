@@ -8,8 +8,11 @@
       :width="0"
       @complete="handleComplete"
     />
-    <Header />
-    <Nuxt class="nuxt-app" />
+    <div class="hero">
+      <Header />
+      <Nuxt class="nuxt-app" />
+    </div>
+    <Footer />
   </div>
 </template>
 
@@ -59,6 +62,9 @@ export default Vue.extend({
       visibility: hidden;
     }
   }
+}
+.hero {
+  min-height: calc(100vw * 0.5625);
 }
 .nuxt-app {
   position: relative;
