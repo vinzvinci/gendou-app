@@ -45,7 +45,6 @@ export default Vue.extend({
         if (!valid) {
           return
         }
-        console.log('form value: ', this.form.githubId)
 
         const key = 'fetch-info'
         this.$message.loading({

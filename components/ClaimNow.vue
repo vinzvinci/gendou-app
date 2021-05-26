@@ -30,48 +30,29 @@
 </template>
 
 <script>
-import BigNumber from 'bignumber.js'
-import Web3 from 'web3'
-import { mapState } from 'vuex'
-import { getStats, getAPY } from '~/utils/devkit'
-import { HTTP_PROVIDER_URL } from '~/utils/web3'
+import { mapActions, mapState } from 'vuex'
 
 export default {
-  data() {
-    return {
-      prizeUSD: 0,
-      creatorsAPY: 0, // NOTE: not use, now
-      stakersAPY: 0,
-    }
+  async fetch() {
+    await this.initDevInfo()
   },
   computed: {
     ...mapState({
       prize: (state) => state.reward,
+      prizeUSD: (state) => state.rewardUSD,
+      creatorsAPY: (state) => state.creatorsAPY,
+      stakersAPY: (state) => state.stakersAPY,
       claimUrl: (state) => state.claimUrl,
     }),
-  },
-  async mounted() {
-    try {
-      const { devPrice } = await getStats()
-
-      this.prizeUSD = new BigNumber(this.prize)
-        .multipliedBy(new BigNumber(devPrice))
-        .dp(0)
-        .toNumber()
-
-      const web3 = new Web3(HTTP_PROVIDER_URL)
-      const { apy, creators } = await getAPY(web3)
-      this.creatorsAPY = creators.toFixed(2)
-      this.stakersAPY = apy.toFixed(2)
-    } catch (e) {
-      console.error(e)
-    }
   },
   methods: {
     linkToOtherWindow() {
       window.open(this.claimUrl, '_blank')
       this.$router.push('/claim')
     },
+    ...mapActions({
+      initDevInfo: 'fetchDevInfo',
+    }),
   },
 }
 </script>

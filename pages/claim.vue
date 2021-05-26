@@ -9,11 +9,8 @@
 </template>
 
 <script>
-import Web3 from 'web3'
 import Vue from 'vue'
 import { mapActions, mapState } from 'vuex'
-import { getAPY } from '~/utils/devkit'
-import { HTTP_PROVIDER_URL } from '~/utils/web3'
 
 export default Vue.extend({
   data() {
@@ -33,20 +30,12 @@ export default Vue.extend({
       claimUrl: (state) => state.claimUrl,
     }),
   },
-  async mounted() {
+  mounted() {
     if (
       this.$store.state.door.history.length === 0 &&
       this.$store.state.door.closed
     ) {
       this.$store.dispatch('door/control', 'opened')
-    }
-    try {
-      const web3 = new Web3(HTTP_PROVIDER_URL)
-      const { apy, creators } = await getAPY(web3)
-      this.creatorsAPY = creators.toFixed(2)
-      this.stakersAPY = apy.toFixed(2)
-    } catch (e) {
-      console.error(e)
     }
   },
   methods: {
