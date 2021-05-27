@@ -20,6 +20,18 @@
             Claim with Iroiro <a-icon type="link" />
           </a-button>
         </a>
+        <a
+          ref="noopener noreferrer"
+          class="tweet"
+          :href="
+            '//twitter.com/intent/tweet?text=I received ' +
+            prize +
+            ' DEV with my GitHub contributions&url=https://airdrop.devprotocol.xyz&hashtags=devprotocol'
+          "
+          target="_blank"
+        >
+          <a-icon type="twitter" />
+        </a>
       </div>
 
       <div class="next">
@@ -135,8 +147,22 @@ export default {
 }
 
 .claim-url {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
   margin: 7rem auto;
   text-align: center;
+  .tweet {
+    background: #1da1f2;
+    width: 3rem;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    &,
+    &:hover {
+      color: white;
+    }
+  }
 }
 
 .stakes-social {

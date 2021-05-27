@@ -54,7 +54,7 @@
           ref="noopener noreferrer"
           href="//ampmedia.jp/2021/05/14/frame00_dev-protocol/"
           target="_blank"
-          >AMP</a
+          >AMP Media ↗</a
         >
       </div>
       <ul class="supporters">
@@ -271,6 +271,15 @@ table {
   }
   span {
     margin-right: 1rem;
+  }
+  a {
+    display: inline-block;
+    &::after {
+      content: '';
+      display: block;
+      width: 100%;
+      border-bottom: 2px dashed;
+    }
   }
 }
 
