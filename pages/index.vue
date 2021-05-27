@@ -283,13 +283,14 @@ ul {
 .supporters {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   @media (max-width: 576px) {
     flex-wrap: wrap;
     gap: 1rem;
     justify-content: space-evenly;
   }
   img {
-    max-width: 100%;
+    max-width: 120px;
     max-height: 50px;
     filter: grayscale(1);
     mix-blend-mode: multiply;
