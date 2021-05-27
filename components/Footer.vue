@@ -17,6 +17,7 @@
     display: grid;
     grid-auto-flow: row;
     gap: 1rem;
+    color: black;
     img {
       width: 160px;
     }

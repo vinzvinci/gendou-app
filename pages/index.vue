@@ -57,6 +57,13 @@
           >AMP</a
         >
       </div>
+      <ul class="supporters">
+        <li><img src="/image/supporters/sios.png" /></li>
+        <li><img src="/image/supporters/hashhub.png" /></li>
+        <li><img src="/image/supporters/ms4s.png" /></li>
+        <li><img src="/image/supporters/miraise.png" /></li>
+        <li><img src="/image/supporters/monex-ventures.png" /></li>
+      </ul>
       <ul id="qa" class="qa">
         <li>
           <h3>What is DEV AIRDROP?</h3>
@@ -74,16 +81,48 @@
             our Stakes.social platform, you can help other projects in need and
             have a stream of additional income by doing so.
           </p>
-          <p>
-            Campaign Period: 28th May - 24th June (About 1 month)<br />
-            Details: In accordance with your number of commits at GitHub in the
-            last one year period, you'll get at most 100 DEV token.<br />
-            We're giving out the total amount of 161,000 DEV to the first 13,010
-            applicants.<br />
-            As soon as the first 13,010 people have received DEV, we'll close
-            the campaign. If you're willing to join, please take advantage of
-            the program while you can.
-          </p>
+          <dl>
+            <dt>Campaign Period</dt>
+            <dd>28th May - 24th June (About 1 month)</dd>
+            <dt>Details</dt>
+            <dd>
+              In accordance with your number of commits at GitHub in the last
+              one year period, you'll get at most 100 DEV token. We're giving
+              out the total amount of 161,000 DEV to the first 13,010
+              applicants. As soon as the first 13,010 people have received DEV,
+              we'll close the campaign. If you're willing to join, please take
+              advantage of the program while you can.
+            </dd>
+            <dt>Rewards table</dt>
+            <dd>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Commits &gt;</th>
+                    <th># of people</th>
+                    <th>Reward</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>5,000</td>
+                    <td>3</td>
+                    <td>1,000</td>
+                  </tr>
+                  <tr>
+                    <td>2,000</td>
+                    <td>200</td>
+                    <td>400</td>
+                  </tr>
+                  <tr>
+                    <td>500</td>
+                    <td>2,000</td>
+                    <td>100</td>
+                  </tr>
+                </tbody>
+              </table>
+            </dd>
+          </dl>
         </li>
         <li>
           <h3>What are Dev tokens?</h3>
@@ -183,17 +222,35 @@ export default Vue.extend({
 .main {
   background: transparent;
   display: grid;
-  align-items: center;
-  min-height: calc(100vw * 0.5625 - 6rem);
-  @media (max-width: 576px) {
-    min-height: calc(100vh - 5rem);
+  min-height: calc(100vh - 5rem);
+  @media (min-width: 980px) {
+    align-content: center;
+    min-height: calc(100vw * 0.5625 - 6rem);
   }
 }
 
 .details {
-  margin: 4rem 0;
+  margin: 4rem auto;
+  max-width: 980px;
   background: transparent;
-  gap: 2rem;
+  gap: 6rem;
+}
+
+table {
+  width: 100%;
+  border: 1px solid #0000001f;
+  padding: 1rem;
+  border-collapse: separate;
+  @media (max-width: 576px) {
+    padding: 0.5rem;
+  }
+  th {
+    font-family: sans-serif;
+    font-weight: normal;
+  }
+  td {
+    font-family: 'IBM Plan mono', monospace;
+  }
 }
 
 .quote {
@@ -217,25 +274,57 @@ export default Vue.extend({
   }
 }
 
-p {
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.supporters {
+  display: flex;
+  justify-content: space-between;
+  @media (max-width: 576px) {
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-evenly;
+  }
+  img {
+    max-width: 100%;
+    max-height: 50px;
+    filter: grayscale(1);
+    mix-blend-mode: multiply;
+  }
+}
+
+p,
+h3,
+h4,
+dl,
+dd {
   margin: 0;
 }
 
 .qa {
   display: grid;
-  list-style: none;
-  padding: 0;
   gap: 6rem;
-  margin: 6rem 0;
-  h3 {
+  h3,
+  h4 {
     font-family: 'IBM Plex Mono', monospace;
   }
-  p {
+  p,
+  dl {
     font-family: sans-serif;
   }
   & > li {
     display: grid;
     gap: 1rem;
+  }
+  dl {
+    display: grid;
+    gap: 0.5rem;
+    dd {
+      margin-left: 1rem;
+    }
   }
 }
 
@@ -261,27 +350,28 @@ p {
 
 .information {
   display: grid;
-  justify-content: space-between;
-  align-items: center;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 3rem;
-  @media (max-width: 576px) {
-    grid-template-columns: none;
-    height: 100%;
+  grid-template-columns: none;
+  height: 100%;
+  padding: 2rem 0;
+  justify-content: center;
+
+  @media (min-width: 980px) {
+    align-items: center;
+    grid-template-columns: repeat(3, 1fr);
     justify-content: space-between;
     align-content: space-between;
-    padding: 2rem 0;
+    gap: 3rem;
   }
 }
 .message {
   .welcome {
     font-size: 2rem;
-    line-height: 2.4rem;
+    line-height: 130%;
     margin-bottom: 3rem;
     font-weight: bold;
     font-family: 'Whyte Inktrap', sans-serif;
-    @media (max-width: 576px) {
-      margin-bottom: 1.5rem;
+    @media (min-width: 1200px) {
+      font-size: calc(2.8vw);
     }
     br {
       @media (max-width: 576px) {

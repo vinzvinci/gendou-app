@@ -67,13 +67,13 @@ export default Vue.extend({
   }
 }
 .hero {
-  min-height: calc(100vw * 0.5625);
   display: grid;
   grid-auto-flow: row;
   align-content: baseline;
-  grid-auto-rows: auto 1fr;
-  @media (max-width: 576px) {
-    min-height: 100vh;
+  min-height: 100vh;
+  @media (min-width: 980px) {
+    min-height: calc(100vw * 0.5625);
+    grid-auto-rows: auto 1fr;
   }
 }
 .nuxt-app {

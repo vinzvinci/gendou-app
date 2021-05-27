@@ -4,7 +4,7 @@
       <img src="/image/header-logo.png" alt="logo" />
     </a>
     <div class="right-content">
-      <a href="/" class="display-4">QA</a>
+      <a href="/#qa" class="display-4">QA</a>
     </div>
   </a-page-header>
 </template>
@@ -14,6 +14,13 @@
   padding: 1rem 8rem;
   @media (max-width: 576px) {
     padding: 1rem 2rem;
+  }
+}
+a {
+  text-decoration: none;
+  color: black;
+  &::after {
+    content: none;
   }
 }
 .ant-page-header-content {
