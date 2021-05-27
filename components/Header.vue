@@ -16,7 +16,6 @@
     padding: 1rem 2rem;
   }
 }
-
 .ant-page-header-content {
   display: flex;
   justify-content: space-between;

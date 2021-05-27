@@ -143,3 +143,10 @@ $display-font-sizes-mb: (
   color: #fff;
   background-color: #35495e;
 }
+
+.container {
+  padding: 0 8rem;
+  @media (max-width: 576px) {
+    padding: 0 2rem;
+  }
+}

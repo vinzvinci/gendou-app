@@ -1,5 +1,5 @@
 <template>
-  <a-layout class="layout fadein">
+  <a-layout class="container fadein">
     <a-layout-content class="content">
       <ClaimNow v-if="prize > 0" />
       <RewardNotFound v-else />
@@ -46,12 +46,8 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-.layout {
-  padding: 0 8rem;
+.container {
   background: transparent;
-  @media (max-width: 576px) {
-    padding: 0 2rem;
-  }
 }
 
 .fadein {

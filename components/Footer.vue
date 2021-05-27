@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer">
+  <footer class="container footer">
     <a href="https://devprotocol.xyz">
       <span>Powered by</span>
       <img src="/image/logo.svg" alt="logo" />
@@ -11,7 +11,8 @@
 .footer {
   display: grid;
   justify-content: space-between;
-  padding: 1rem 8rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   a {
     display: grid;
     grid-auto-flow: row;

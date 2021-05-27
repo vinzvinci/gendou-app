@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <a-layout class="layout">
+  <main>
+    <a-layout class="container main">
       <div class="information">
         <div class="message">
           <p class="welcome">
@@ -37,7 +37,9 @@
         </div>
       </div>
     </a-layout>
-  </div>
+
+    <a-layout class="container"> </a-layout>
+  </main>
 </template>
 
 <script>
@@ -75,15 +77,11 @@ body {
   opacity: 0;
 }
 
-.layout {
-  padding: 0 8rem;
+.main {
   background: transparent;
   height: 100%;
   display: grid;
   align-items: center;
-  @media (max-width: 576px) {
-    padding: 0 2rem;
-  }
 }
 
 p {
