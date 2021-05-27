@@ -147,16 +147,8 @@ export default Vue.extend({
   }
 
   .claim-url {
-    margin: 130px auto;
-    height: initial;
-    color: #fff;
+    margin: 7rem auto;
     text-align: center;
-    background-color: #0a0a0a;
-    line-height: 32px;
-    border-radius: 0;
-    border: none;
-    cursor: pointer;
-    width: 280px;
   }
 
   .about-apy {

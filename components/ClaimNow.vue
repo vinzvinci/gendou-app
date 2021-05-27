@@ -89,15 +89,8 @@ export default {
   }
 
   .connect-github-app {
-    margin-bottom: 27px;
-    height: initial;
-    color: #fff;
+    margin-bottom: 2rem;
     text-align: center;
-    background-color: #0a0a0a;
-    line-height: 32px;
-    border-radius: 0;
-    border: none;
-    cursor: pointer;
   }
 
   .next {
