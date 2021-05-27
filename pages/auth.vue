@@ -18,6 +18,7 @@ export default Vue.extend({
     }),
   },
   async mounted() {
+    this.$store.dispatch('door/control', 'opened')
     const code = this.$route.query.code
     const state = this.$route.query.state
 
