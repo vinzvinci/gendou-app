@@ -29,7 +29,10 @@ export default Vue.extend({
   },
   data() {
     return {
-      defaultOptions: { animationData },
+      defaultOptions: {
+        animationData,
+        rendererSettings: { preserveAspectRatio: 'xMidYMid slice' },
+      },
     }
   },
   computed: {
@@ -65,6 +68,13 @@ export default Vue.extend({
 }
 .hero {
   min-height: calc(100vw * 0.5625);
+  display: grid;
+  grid-auto-flow: row;
+  align-content: baseline;
+  grid-auto-rows: auto 1fr;
+  @media (max-width: 576px) {
+    min-height: 100vh;
+  }
 }
 .nuxt-app {
   position: relative;

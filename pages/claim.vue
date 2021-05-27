@@ -1,8 +1,7 @@
 <template>
   <a-layout class="layout fadein">
     <a-layout-content class="content">
-      <ShowClaimUrl v-if="prize > 0 && claimUrl !== ''" />
-      <ClaimNow v-else-if="prize > 0" />
+      <ClaimNow v-if="prize > 0" />
       <RewardNotFound v-else />
     </a-layout-content>
   </a-layout>
@@ -47,13 +46,6 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-.content {
-  padding: 0 200px;
-  @media (max-width: 576px) {
-    padding: 0 25px;
-  }
-}
-
 .layout {
   padding: 0 8rem;
   background: transparent;

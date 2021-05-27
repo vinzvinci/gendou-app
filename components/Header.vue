@@ -12,31 +12,25 @@
 <style lang="scss">
 .header {
   padding: 1rem 8rem;
-
-  .ant-page-header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0;
-
-    img {
-      width: 116px;
-    }
-
-    .right-content {
-      font-weight: 500;
-    }
+  @media (max-width: 576px) {
+    padding: 1rem 2rem;
   }
 }
 
-@media (max-width: 576px) {
-  .header {
-    padding: 1rem 2rem;
-    .ant-page-header-content {
-      img {
-        width: 80px;
-      }
+.ant-page-header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+
+  img {
+    width: 116px;
+    @media (max-width: 576px) {
+      width: 80px;
     }
+  }
+  .right-content {
+    font-weight: 500;
   }
 }
 </style>

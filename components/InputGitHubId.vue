@@ -5,12 +5,13 @@
     :rules="rules"
     @submit.prevent="submit"
   >
-    <a-form-model-item prop="githubId">
+    <p>Enter your GitHub ID to see your claimable coin :)</p>
+    <a-form-model-item class="model" prop="githubId">
       <a-input
         v-model="form.githubId"
         type="text"
         class="input display-5"
-        placeholder="Enter your GitHub ID"
+        placeholder="GitHub ID"
       >
       </a-input>
     </a-form-model-item>
@@ -71,13 +72,21 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
+p {
+  color: black;
+  font-size: 1rem;
+}
+
+.model {
+  margin: 0;
+}
+
 .input {
-  width: auto;
+  width: 100%;
   padding: 8px 24px;
   height: initial;
   color: #fff;
   background-color: #0a0a0a;
-  line-height: 32px;
   border-radius: 0;
   border: none;
   &:hover {
@@ -90,13 +99,5 @@ export default Vue.extend({
     padding: 10px 15px;
     line-height: 100%;
   }
-}
-</style>
-<style>
-.ant-btn-loading::before {
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
 }
 </style>

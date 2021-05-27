@@ -52,10 +52,8 @@ export default {
   line-height: 0;
   background: url('/images/fantasy-sky_90839-278.jpg') no-repeat center center;
   background-size: auto 100%;
-}
-@media (max-width: 576px) {
-  .door-animation {
-    width: 100%;
+  @media (max-width: 576px) {
+    height: 100vh;
   }
 }
 </style>
