@@ -14,7 +14,7 @@ export default Vue.extend({
   computed: {
     githubAuthUrl() {
       const redirectUri =
-        process.env.REDIRECT_URI || 'http://localhost:3000/auth'
+        process.env.REDIRECT_URI || `http://${window.location.host}/auth`
       const clientId = process.env.GITHUB_CLIENT_ID || 'af27125807c57127f1fe'
       return this.requestState
         ? `https://github.com/login/oauth/authorize?client_id=${clientId}&state=${this.requestState}&redirect_uri=${redirectUri}`
