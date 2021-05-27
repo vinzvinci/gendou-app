@@ -10,7 +10,7 @@
     </div>
 
     <div class="claim-url">
-      <a :href="claimUrl">
+      <a ref="noopener noreferrer" :href="claimUrl" target="_blank">
         <a-button type="default" class="button display-5">
           Claim with Iroiro <a-icon type="link" />
         </a-button>
