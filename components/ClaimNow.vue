@@ -60,7 +60,7 @@
           src="https://devprotocol.xyz/assets/img/Stakes.svg"
         />
         <div class="ss-explore-button">
-          <a href="https://stakes.social/">
+          <a ref="noopener noreferrer" href="//stakes.social/" target="_blank">
             <a-button type="default" class="button display-5">
               Explore
             </a-button>
@@ -85,7 +85,11 @@
             </div>
           </div>
           <div>
-            <a href="https://stakes.social/create">
+            <a
+              ref="noopener noreferrer"
+              href="https://stakes.social/create"
+              target="_blank"
+            >
               <a-button type="default" class="button display-5">Apply</a-button>
             </a>
           </div>

@@ -41,7 +41,7 @@
     <a-layout class="container details">
       <p>
         Dear all OSS developers, thank you for supporting the OSS ecosystem thus
-        far. Dev Protocol will reward up to $1,500,000 to the most active GitHub
+        far. Dev Protocol will reward up to $2,100,000 to the most active GitHub
         users as a tribute and thank you for all your efforts.
       </p>
       <div class="quote">
@@ -87,11 +87,11 @@
             <dt>Details</dt>
             <dd>
               In accordance with your number of commits at GitHub in the last
-              one year period, you'll get at most 100 DEV token. We're giving
-              out the total amount of 161,000 DEV to the first 13,010
-              applicants. As soon as the first 13,010 people have received DEV,
-              we'll close the campaign. If you're willing to join, please take
-              advantage of the program while you can.
+              one year period, you’ll get at most 1000 DEV token. We’re giving
+              out the total amount of 283,000 DEV to the first 2,203 applicants.
+              As soon as the first 2,203 people have received DEV, we’ll close
+              the campaign. If you’re willing to join, please take advantage of
+              the program while you can.
             </dd>
             <dt>Rewards table</dt>
             <dd>
@@ -121,6 +121,12 @@
                   </tr>
                 </tbody>
               </table>
+              <p>
+                <small>
+                  *If the first-come-first-served quota is full, it will be
+                  automatically moved down.</small
+                >
+              </p>
             </dd>
           </dl>
         </li>
