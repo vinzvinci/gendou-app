@@ -370,6 +370,7 @@ dd {
   height: 100%;
   padding: 2rem 0;
   justify-content: center;
+  align-content: space-around;
 
   @media (min-width: 980px) {
     align-items: center;
