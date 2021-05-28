@@ -10,9 +10,7 @@
 
     <div class="next">
       <p class="description display-5">
-        Why so? Lorem ipsum dolor sit amet, consectetur<br />
-        adipiscing elit, sed do eiusmod tempor incididunt ut<br />
-        labore et dolore magna aliqua.
+        Sorry you weren't on this Airdrop audience list.
       </p>
 
       <div class="button-wrapper">

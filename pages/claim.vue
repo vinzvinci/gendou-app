@@ -3,6 +3,7 @@
     <a-layout-content class="content">
       <ClaimNow v-if="prize > 0" />
       <RewardNotFound v-else />
+      <FAQ class="qa" />
     </a-layout-content>
   </a-layout>
 </template>
@@ -49,7 +50,13 @@ export default Vue.extend({
 .container {
   background: transparent;
 }
-
+.qa {
+  margin: 6rem auto;
+  margin-top: 24rem;
+  @media (min-width: 980px) {
+    margin-top: inherit;
+  }
+}
 .fadein {
   animation: fadeIn 1.8s;
 }
