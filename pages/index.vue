@@ -421,10 +421,10 @@ dd {
 .sponsored {
   display: flex;
   .pic {
-    margin-right: 25px;
+    margin-right: 1rem;
 
     img {
-      width: 72px;
+      width: 60px;
       @media (max-width: 576px) {
         width: 36px;
       }

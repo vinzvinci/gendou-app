@@ -51,8 +51,10 @@ export default {
   overflow: hidden;
   font-size: 0;
   line-height: 0;
-  background: url('/images/fantasy-sky_90839-278.jpg') no-repeat center center;
   background-size: auto 100%;
+  &:has(svg > g > g) {
+    background: url('/images/fantasy-sky_90839-278.jpg') no-repeat center center;
+  }
   @media (min-width: 980px) {
     height: auto;
   }

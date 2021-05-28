@@ -40,6 +40,11 @@ export default {
     ],
     link: [
       {
+        rel: 'prefetch',
+        href: '/images/Animation_Final_002_hover0000.png',
+        as: 'image',
+      },
+      {
         rel: 'icon',
         type: 'image/png',
         sizes: '32x32',
