@@ -78,11 +78,8 @@ export default Vue.extend({
       if (mutation.type !== 'door/toggle' || mutation.payload !== true) {
         return
       }
-      this.$router.push(`/claim`)
+      this.$router.push(`/result`)
     })
-  },
-  mounted() {
-    this.warning()
   },
   beforeDestroy() {
     this.unsubscribe()
@@ -90,15 +87,6 @@ export default Vue.extend({
   methods: {
     handleStart() {
       this.$store.dispatch('door/open', true)
-    },
-    warning() {
-      this.$warning({
-        title: 'Under maintenance',
-        content: 'Please wait for a while until the announcement of resumption',
-        maskClosable: false,
-        keyboard: false,
-        okButtonProps: { props: { disabled: true } },
-      })
     },
   },
 })

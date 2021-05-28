@@ -12,7 +12,6 @@
         type="text"
         class="input display-5"
         placeholder="GitHub username"
-        disabled="disabled"
       >
       </a-input>
     </a-form-model-item>
