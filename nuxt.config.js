@@ -4,7 +4,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'gendou-app',
+    title: 'Dev Airdrop for GitHub',
     htmlAttrs: {
       lang: 'en',
     },
@@ -12,6 +12,31 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
+      { property: 'og:title', content: 'Dev Airdrop for GitHub' },
+      { property: 'og:site_name', content: 'Dev Airdrop for GitHub' },
+      { property: 'og:url', content: 'https://airdrop.devprotocol.xyz' },
+      {
+        property: 'og:description',
+        content:
+          'Dear all OSS developers, thank you for supporting the OSS ecosystem thus far. Dev Protocol will reward up to $2,100,000 to the most active GitHub users as a tribute and thank you for all your efforts.',
+      },
+      { property: 'og:type', content: 'website' },
+      {
+        property: 'og:image',
+        content: 'https://airdrop.devprotocol.xyz/image/eyecatch.png',
+      },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:site', content: '@devprtcl' },
+      {
+        name: 'twitter:description',
+        content:
+          'Dear all OSS developers, thank you for supporting the OSS ecosystem thus far. Dev Protocol will reward up to $2,100,000 to the most active GitHub users as a tribute and thank you for all your efforts.',
+      },
+      { name: 'twitter:title', content: 'Dev Airdrop for GitHub' },
+      {
+        name: 'twitter:image',
+        content: 'https://airdrop.devprotocol.xyz/image/eyecatch.png',
+      },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
