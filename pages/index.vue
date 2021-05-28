@@ -228,7 +228,7 @@ export default Vue.extend({
 .main {
   background: transparent;
   display: grid;
-  min-height: calc(100vh - 5rem);
+  min-height: calc(42rem - 5rem);
   @media (min-width: 980px) {
     align-content: center;
     min-height: calc(100vw * 0.5625 - 6rem);

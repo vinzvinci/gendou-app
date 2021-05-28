@@ -47,7 +47,7 @@ export default {
 <style lang="scss" scoped>
 .door-animation {
   width: 100%;
-  height: 100vh;
+  height: 42rem;
   overflow: hidden;
   font-size: 0;
   line-height: 0;
