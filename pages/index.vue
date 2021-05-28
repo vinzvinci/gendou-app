@@ -95,6 +95,9 @@ export default Vue.extend({
       this.$warning({
         title: 'Under maintenance',
         content: 'Please wait for a while until the announcement of resumption',
+        maskClosable: false,
+        keyboard: false,
+        okButtonProps: { props: { disabled: true } },
       })
     },
   },
