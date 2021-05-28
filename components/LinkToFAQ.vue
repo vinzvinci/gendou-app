@@ -1,5 +1,5 @@
 <template>
-  <a ref="noopener noreferrer" href="//devprotocol.xyz/faq.html" target="_blank"
+  <a ref="noopener noreferrer" href="//devprotocol.xyz/faq" target="_blank"
     >→ Read FAQ for details</a
   >
 </template>
