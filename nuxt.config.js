@@ -40,9 +40,29 @@ export default {
     ],
     link: [
       {
-        rel: 'prefetch',
+        rel: 'preload',
         href: '/images/Animation_Final_002_hover0000.png',
         as: 'image',
+      },
+      {
+        rel: 'preload',
+        href: 'https://devstaticasset.azureedge.net/font/ABCWhyte-Regular.woff2',
+        as: 'font',
+      },
+      {
+        rel: 'preload',
+        href: 'https://devstaticasset.azureedge.net/font/ABCWhyteInktrap-Bold.woff2',
+        as: 'font',
+      },
+      {
+        rel: 'preload',
+        href: 'https://devstaticasset.azureedge.net/font/ABCWhyteInktrap-Regular.woff2',
+        as: 'font',
+      },
+      {
+        rel: 'preload',
+        href: 'https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&display=swap',
+        as: 'style',
       },
       {
         rel: 'icon',
