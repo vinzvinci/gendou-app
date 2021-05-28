@@ -81,12 +81,21 @@ export default Vue.extend({
       this.$router.push(`/claim`)
     })
   },
+  mounted() {
+    this.warning()
+  },
   beforeDestroy() {
     this.unsubscribe()
   },
   methods: {
     handleStart() {
       this.$store.dispatch('door/open', true)
+    },
+    warning() {
+      this.$warning({
+        title: 'Under maintenance',
+        content: 'Please wait for a while until the announcement of resumption',
+      })
     },
   },
 })
