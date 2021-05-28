@@ -18,9 +18,9 @@
 }
 a {
   text-decoration: none;
-  color: black;
-  &::after {
-    content: none;
+  &,
+  &:hover {
+    color: black;
   }
 }
 .ant-page-header-content {
