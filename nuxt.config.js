@@ -1,24 +1,26 @@
+const title = 'Dev Airdrop for GitHub'
+const description =
+  'Dear all OSS developers, thank you for supporting the OSS ecosystem thus far. Dev Protocol will reward up to $2,100,000 to the most active GitHub users as a tribute and thank you for all your efforts.'
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'Dev Airdrop for GitHub',
+    title,
     htmlAttrs: {
       lang: 'en',
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
-      { property: 'og:title', content: 'Dev Airdrop for GitHub' },
-      { property: 'og:site_name', content: 'Dev Airdrop for GitHub' },
+      { hid: 'description', name: 'description', content: description },
+      { property: 'og:title', content: title },
+      { property: 'og:site_name', content: title },
       { property: 'og:url', content: 'https://airdrop.devprotocol.xyz' },
       {
         property: 'og:description',
-        content:
-          'Dear all OSS developers, thank you for supporting the OSS ecosystem thus far. Dev Protocol will reward up to $2,100,000 to the most active GitHub users as a tribute and thank you for all your efforts.',
+        content: description,
       },
       { property: 'og:type', content: 'website' },
       {
@@ -29,10 +31,9 @@ export default {
       { name: 'twitter:site', content: '@devprtcl' },
       {
         name: 'twitter:description',
-        content:
-          'Dear all OSS developers, thank you for supporting the OSS ecosystem thus far. Dev Protocol will reward up to $2,100,000 to the most active GitHub users as a tribute and thank you for all your efforts.',
+        content: description,
       },
-      { name: 'twitter:title', content: 'Dev Airdrop for GitHub' },
+      { name: 'twitter:title', content: title },
       {
         name: 'twitter:image',
         content: 'https://airdrop.devprotocol.xyz/image/eyecatch.png',
