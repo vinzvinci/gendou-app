@@ -35,10 +35,11 @@
             ><div>
               <p>
                 Apply on an airdrop entry form. Rewards will be distributed on a
-                first-come, first-served basis and you may not get a reward once
-                the quota is full. Entry is scheduled to open on 3 June. Be sure
-                to follow us on Twitter and join on Discord to be the first to
-                know when the entry open!
+                first-come, first-served basis, and you may not get a reward
+                once the quota is full. Entry is scheduled to open on June 3.
+                Come back here on June 3 and fill out an airdrop form to have a
+                chance at getting the reward. Be sure to follow us on Twitter
+                and join on Discord to be the first to know when the entry open!
               </p>
               <ul class="social-links">
                 <li>
