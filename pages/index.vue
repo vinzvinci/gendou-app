@@ -186,6 +186,15 @@
             works, they are rewarded with dev tokens for doing so.
           </p>
         </li>
+        <li>
+          <h3>Learn more</h3>
+          <iframe
+            src="https://drive.google.com/file/d/1awsXIOl7cuX8hgDHfMI7q5xKwImEpMsN/preview"
+            frameborder="no"
+            width="640"
+            height="480"
+          ></iframe>
+        </li>
       </ul>
       <div class="heart">
         <img src="/image/heart.png" alt="heart" />
@@ -341,6 +350,9 @@ dd {
     dd {
       margin-left: 1rem;
     }
+  }
+  iframe {
+    width: 100%;
   }
 }
 
