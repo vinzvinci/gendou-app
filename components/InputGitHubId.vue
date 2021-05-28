@@ -5,13 +5,13 @@
     :rules="rules"
     @submit.prevent="submit"
   >
-    <p>Enter your GitHub ID to see your claimable coin :)</p>
+    <p>Enter your GitHub username to see your claimable coin :)</p>
     <a-form-model-item class="model" prop="githubId">
       <a-input
         v-model="form.githubId"
         type="text"
         class="input display-5"
-        placeholder="GitHub ID"
+        placeholder="GitHub username"
       >
       </a-input>
     </a-form-model-item>
@@ -30,7 +30,7 @@ export default Vue.extend({
         githubId: [
           {
             required: true,
-            message: 'Please input your GitHub Id',
+            message: 'Please input your GitHub username',
             trigger: 'change',
           },
         ],
