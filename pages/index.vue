@@ -101,6 +101,12 @@ export default Vue.extend({
 })
 </script>
 
+<style>
+.ant-modal-confirm-btns > button {
+  display: none;
+}
+</style>
+
 <style lang="scss" scoped>
 .active {
   transition: opacity 0.4s ease-out;
