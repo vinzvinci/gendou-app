@@ -27,7 +27,6 @@
               project by allowing them to collect an interest rate on the DEV
               they stake.
             </p>
-            <div class="apply-oss-description-more">Learn more</div>
           </div>
         </div>
         <div>
