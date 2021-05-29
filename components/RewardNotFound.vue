@@ -14,8 +14,18 @@
       </p>
 
       <div class="button-wrapper">
-        <a-button type="default" class="button display-5">Buy Dev</a-button>
-        <a-button type="default" class="button display-5">App</a-button>
+        <a
+          ref="noopener noreferrer"
+          href="//app.uniswap.org/#/swap?outputCurrency=0x5caf454ba92e6f2c929df14667ee360ed9fd5b26"
+          target="_blank"
+        >
+          <a-button type="default" class="button display-5"
+            >Buy Dev</a-button
+          ></a
+        >
+        <a ref="noopener noreferrer" target="_blank" href="//stakes.social">
+          <a-button type="default" class="button display-5">App</a-button></a
+        >
       </div>
     </div>
   </div>
