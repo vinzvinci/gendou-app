@@ -60,7 +60,7 @@
                 >
               </li>
             </ul>
-            <div class="prepare">
+            <aside class="prepare">
               <h3><a-icon type="check-square" /> Preparing for next steps</h3>
               <p>
                 Preparing what is necessary for the entry and claiming process
@@ -91,7 +91,7 @@
                   </p>
                 </li>
               </ol>
-            </div>
+            </aside>
           </div></template
         ></a-step
       >
