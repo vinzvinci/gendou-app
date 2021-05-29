@@ -60,6 +60,38 @@
                 >
               </li>
             </ul>
+            <div class="prepare">
+              <h3><a-icon type="check-square" /> Preparing for next steps</h3>
+              <p>
+                Preparing what is necessary for the entry and claiming process
+                will help the flow run smoothly.
+              </p>
+              <ol class="prepare-items">
+                <li>
+                  <h4>Ethereum wallet</h4>
+                  <p>
+                    A wallet that supports Ethereum and any ERC-20 tokens,
+                    <a
+                      ref="noopener noreferrer"
+                      class="metamask"
+                      target="_blank"
+                      href="//metamask.io"
+                      >MetaMask</a
+                    >
+                    is recommended.
+                  </p>
+                </li>
+                <li>
+                  <h4>ETH</h4>
+                  <p>
+                    To create an Ethereum transaction for claiming purposes, a
+                    small amount of ETH is consumed as a gas fee. The gas fee
+                    will vary depending on Ethereum congestion, but it is safe
+                    to set aside around <i>0.005</i> ETH.
+                  </p>
+                </li>
+              </ol>
+            </div>
           </div></template
         ></a-step
       >
@@ -197,6 +229,31 @@ export default {
     img {
       height: 3.4rem;
       width: auto;
+    }
+  }
+}
+
+.prepare {
+  border: 1px solid;
+  border-radius: 3px;
+  padding: 0.8rem;
+  margin-top: 1rem;
+  font-family: sans-serif;
+  &-items {
+    padding-left: 2rem;
+    > li {
+      > h4 {
+        font-family: 'IBM Plex mono', monospace;
+      }
+      > p {
+        margin-left: -1rem;
+        > .metamask {
+          text-decoration: underline;
+          &::after {
+            content: '↗';
+          }
+        }
+      }
     }
   }
 }
