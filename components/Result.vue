@@ -1,88 +1,88 @@
 <template>
-  <div>
-    <section>
-      <div class="result">
-        <p class="message display-5">Rewards you can claim is:</p>
-        <p class="prize">{{ prize }} DEV</p>
-        <p class="usd display-6">
-          <a-icon v-if="prizeUSD === 0" type="loading" />
-          <span v-else>${{ prizeUSD }}</span> in USD
-        </p>
-      </div>
+  <section>
+    <div class="result">
+      <p class="message display-5">Rewards you can claim is:</p>
+      <p class="prize">{{ prize }} DEV</p>
+      <p class="usd display-6">
+        <a-icon v-if="prizeUSD === 0" type="loading" />
+        <span v-else>${{ prizeUSD }}</span> in USD
+      </p>
+    </div>
 
-      <a-steps class="flow" direction="vertical" :current="1">
-        <a-step title="Check"
-          ><template slot="description">
-            <div>
-              <p>Check your maximum reward you can get.</p>
-              <a
-                ref="noopener noreferrer"
-                class="tweet"
-                :href="
-                  '//twitter.com/intent/tweet?text=My claimable reward was ' +
-                  prize +
-                  ' DEV%0ADev Airdrop 🎁🎁 Get DEV tokens with your commits to OSS 👩‍💻👨‍💻%0A%0AFor most active GitHub users!&url=https://airdrop.devprotocol.xyz&hashtags=devprotocol'
-                "
-                target="_blank"
-              >
-                <a-icon type="twitter" /> Tweet my claimable reward
-              </a>
-            </div></template
-          ></a-step
-        >
-        <a-step title="Entry">
-          <template slot="description"
-            ><div>
-              <p>
-                Entry is scheduled to open on June 3. Come back here on June 3
-                and fill out an airdrop form to have a chance at getting the
-                reward. Rewards will be distributed on a first-come,
-                first-served basis, and you may not get a reward once the quota
-                is full. Be sure to follow us on Twitter and join on Discord to
-                be the first to know when the entry open!
-              </p>
-              <ul class="social-links">
-                <li>
-                  <a
-                    ref="noopener noreferrer"
-                    class="twitter"
-                    href="//twitter.com/devprtcl"
-                    target="_blank"
-                    ><a-icon type="twitter" /> Twitter</a
-                  >
-                </li>
-                <li>
-                  <a
-                    ref="noopener noreferrer"
-                    class="discord"
-                    href="//discord.gg/VwJp4KM"
-                    target="_blank"
-                    ><img src="/image/discord.svg" /> Discord</a
-                  >
-                </li>
-              </ul>
-            </div></template
-          ></a-step
-        >
-        <a-step
-          title="Claiming"
-          description="After closing the two-week application period, you can claim your reward!"
-        />
-      </a-steps>
+    <a-steps class="flow" direction="vertical" :current="1">
+      <a-step title="Check"
+        ><template slot="description">
+          <div>
+            <p>Check your maximum reward you can get.</p>
+            <a
+              ref="noopener noreferrer"
+              class="tweet"
+              :href="
+                '//twitter.com/intent/tweet?text=My claimable reward was ' +
+                prize +
+                ' DEV%0ADev Airdrop 🎁🎁 Get DEV tokens with your commits to OSS 👩‍💻👨‍💻%0A%0AFor most active GitHub users!&url=https://airdrop.devprotocol.xyz&hashtags=devprotocol'
+              "
+              target="_blank"
+            >
+              <a-icon type="twitter" /> Tweet my claimable reward
+            </a>
+          </div></template
+        ></a-step
+      >
+      <a-step title="Entry">
+        <template slot="description"
+          ><div>
+            <p>
+              Entry is scheduled to open on June 3. Come back here on June 3 and
+              fill out an airdrop form to have a chance at getting the reward.
+              Rewards will be distributed on a first-come, first-served basis,
+              and you may not get a reward once the quota is full. Be sure to
+              follow us on Twitter and join on Discord to be the first to know
+              when the entry open!
+            </p>
+            <ul class="social-links">
+              <li>
+                <a
+                  ref="noopener noreferrer"
+                  class="twitter"
+                  href="//twitter.com/devprtcl"
+                  target="_blank"
+                  ><a-icon type="twitter" /> Twitter</a
+                >
+              </li>
+              <li>
+                <a
+                  ref="noopener noreferrer"
+                  class="discord"
+                  href="//discord.gg/VwJp4KM"
+                  target="_blank"
+                  ><img src="/image/discord.svg" /> Discord</a
+                >
+              </li>
+            </ul>
+          </div></template
+        ></a-step
+      >
+      <a-step
+        title="Claiming"
+        description="After closing the two-week application period, you can claim your reward!"
+      />
+    </a-steps>
 
-      <div class="next">
-        <p class="description display-6">
-          Stake your DEV for an OSS project to earn
-          <a-icon v-if="stakersAPY === 0" type="loading" />
-          <span v-else>{{ stakersAPY }}</span> %/year<br />
-          and support an OSS project by
-          <a-icon v-if="creatorsAPY === 0" type="loading" />
-          <span v-else>{{ creatorsAPY }}</span> %/year
-          <a href="/" class="how-to">How to stake?</a>
-        </p>
-      </div>
-    </section>
-  </div>
+    <div class="next">
+      <p class="description display-6">
+        Stake your DEV for an OSS project to earn
+        <a-icon v-if="stakersAPY === 0" type="loading" />
+        <span v-else>{{ stakersAPY }}</span> %/year<br />
+        and support an OSS project by
+        <a-icon v-if="creatorsAPY === 0" type="loading" />
+        <span v-else>{{ creatorsAPY }}</span> %/year
+        <a href="/" class="how-to">How to stake?</a>
+      </p>
+    </div>
+
+    <CtoA />
+  </section>
 </template>
 
 <script>
@@ -198,21 +198,6 @@ export default {
       height: 3.4rem;
       width: auto;
     }
-  }
-}
-
-.stakes-social {
-  text-align: center;
-  h2 {
-    font-family: 'Whyte Inktrap', sans-serif;
-    font-weight: bold;
-    font-size: 6rem;
-    @media (max-width: 576px) {
-      font-size: 4rem;
-    }
-  }
-  .ss-explore-button {
-    margin-top: 4rem;
   }
 }
 
