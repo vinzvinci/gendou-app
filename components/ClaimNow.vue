@@ -143,7 +143,8 @@ export default {
   border-radius: 0;
   border: none;
   cursor: pointer;
-  &:hover {
+  &:hover,
+  &:focus {
     border: none;
     color: #fff;
     background-color: #0a0a0a;

@@ -18,39 +18,45 @@
       </p>
       <dl>
         <dt>Campaign Period</dt>
-        <dd>28th May - 24th June (About 1 month)</dd>
+        <dd>
+          Entry: June 3 - July 1, 23:59 UTC. [Scheduled]Review completion: July
+          31. [Scheduled]Claimable: August 20
+        </dd>
         <dt>Details</dt>
         <dd>
-          In accordance with your number of commits at GitHub in the last one
-          year period (2020-05-01 to 2021-05-01), you’ll get at most 1000 DEV
-          token. We’re giving out the total amount of 283,000 DEV to the first
-          2,203 applicants. As soon as the first 2,203 people have received DEV,
-          we’ll close the campaign. If you’re willing to join, please take
-          advantage of the program while you can.
+          By your
+          <strong
+            >geometric mean of annual public contributions on GitHub in the last
+            3 years period</strong
+          >
+          (2018-05-01 to 2021-05-01), you'll get at most 1000 DEV tokens. We're
+          giving out the total amount of 283,000 DEV to the first 2,203
+          applicants sorted by contributions that applied users of. If you're
+          willing to join, please take advantage of the program while you can.
         </dd>
         <dt>Rewards table</dt>
         <dd>
           <table>
             <thead>
               <tr>
-                <th>Commits &gt;</th>
+                <th>Contrib &gt;</th>
                 <th># of people</th>
                 <th>Reward</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>5,000</td>
+                <td>3,000</td>
                 <td>3</td>
                 <td>1,000</td>
               </tr>
               <tr>
-                <td>2,000</td>
+                <td>1,200</td>
                 <td>200</td>
                 <td>400</td>
               </tr>
               <tr>
-                <td>500</td>
+                <td>300</td>
                 <td>2,000</td>
                 <td>100</td>
               </tr>
@@ -58,8 +64,9 @@
           </table>
           <p>
             <small>
-              *If the first-come-first-served quota is full, it will be
-              automatically moved down.</small
+              *Entries will be allocated from the larger number of calculated
+              contributions and automatically moved down if the corresponding
+              quota is full.</small
             >
           </p>
         </dd>
@@ -121,6 +128,63 @@
       </p>
     </li>
     <li>
+      <h3>When will the reward be distributed?</h3>
+      <p>
+        The distribution of rewards is scheduled to start on August 20th. But it
+        may change.
+      </p>
+    </li>
+    <li>
+      <h3>How is the number of contributions calculated?</h3>
+      <p>
+        Calculated based on the geometric mean of annual public contributions on
+        GitHub over the last three years.
+      </p>
+    </li>
+    <li>
+      <h3>How many contributions do I need to distribute?</h3>
+      <p>
+        It is calculated based on the geometric mean of the past 3 years, and
+        those who have a result of 300 or more are eligible. However, if the
+        number of applicants exceeds the target, the results will be distributed
+        in descending order.
+      </p>
+    </li>
+    <li>
+      <h3>Why are private contributions not covered?</h3>
+      <p>
+        This Airdrop is aimed at contributors to the OSS ecosystem. In the case
+        of private commit, it is excluded because there are many contributions
+        other than OSS.
+      </p>
+    </li>
+    <li>
+      <h3>How long can I enter?</h3>
+      <p>Entry is open until 23:59:59 UTC on July 1st.</p>
+    </li>
+    <li>
+      <h3>How is it distributed</h3>
+      <p>
+        After accepting the entry, we will examine the entry contents and
+        confirm the target person. Will be distributed after that.
+      </p>
+    </li>
+    <li>
+      <h3>What do I need to claim</h3>
+      <p>
+        To create an Ethereum transaction for claiming purposes, a small amount
+        of ETH is consumed as a gas fee. The gas fee will vary depending on
+        Ethereum congestion, but it is safe to set aside around 0.005 ETH.
+      </p>
+    </li>
+    <li>
+      <h3>Can I enter for my friends instead?</h3>
+      <p>
+        If you enter using someone else's Github username, it will be
+        fraudulent.
+      </p>
+    </li>
+    <li>
       <h3>Learn more</h3>
       <iframe
         src="https://drive.google.com/file/d/1awsXIOl7cuX8hgDHfMI7q5xKwImEpMsN/preview"
@@ -128,6 +192,7 @@
         width="640"
         height="480"
       ></iframe>
+      <p><LinkToFAQ /></p>
     </li>
   </ul>
 </template>

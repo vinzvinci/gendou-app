@@ -1,14 +1,15 @@
 <template>
-  <div>
-    <div>Please wait...</div>
+  <div class="container">
+    <div><a-icon type="loading" /> Please wait...</div>
   </div>
 </template>
 
 <script>
 import Vue from 'vue'
-import { mapActions, mapGetters, mapState } from 'vuex'
+import { mapActions, mapGetters, mapMutations, mapState } from 'vuex'
 
 export default Vue.extend({
+  layout: 'blank',
   computed: {
     ...mapState({
       requestState: (state) => state.github.requestState,
@@ -26,20 +27,31 @@ export default Vue.extend({
       throw new Error('invalid state value')
     }
 
-    await this.fetchClaimInfo(code)
+    await this.fetchInfoByCode(code)
     if (this.$route.query.error) {
       this.$message.error({
         content: `Error: ${this.$route.query.error}`,
         key: 'fetchtch-claim-info',
       })
     } else {
-      this.$router.push('/claim')
+      this.$router.push('/result')
     }
   },
   methods: {
     ...mapActions({
-      fetchClaimInfo: 'github/fetchClaimInfo',
+      fetchInfoByCode: 'github/fetchInfoByCode',
+    }),
+    ...mapMutations({
+      setCurrentStep: 'claim/setCurrentStep',
     }),
   },
 })
 </script>
+
+<style lang="scss" scoped>
+.container {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+</style>

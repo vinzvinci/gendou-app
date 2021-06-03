@@ -16,18 +16,26 @@
       <div class="button-wrapper">
         <a
           ref="noopener noreferrer"
-          href="//app.uniswap.org/#/swap?outputCurrency=0x5caf454ba92e6f2c929df14667ee360ed9fd5b26"
+          href="//app.uniswap.org/#/swap?outputCurrency=0x5caf454ba92e6f2c929df14667ee360ed9fd5b26&use=V2"
           target="_blank"
         >
           <a-button type="default" class="button display-5"
             >Buy Dev</a-button
           ></a
         >
-        <a ref="noopener noreferrer" target="_blank" href="//stakes.social">
-          <a-button type="default" class="button display-5">App</a-button></a
+        <a
+          ref="noopener noreferrer"
+          target="_blank"
+          href="//stakes.social/invite/github"
+        >
+          <a-button type="default" class="button display-5"
+            >Earn DEV</a-button
+          ></a
         >
       </div>
     </div>
+
+    <CtoA :transparent="true" class="ctoa" />
   </div>
 </template>
 
@@ -88,11 +96,16 @@
       border: none;
       cursor: pointer;
 
-      &:hover {
+      &:hover,
+      &:focus {
         border: none;
       }
     }
   }
+}
+
+.ctoa {
+  margin-top: 6rem;
 }
 
 @media (max-width: 576px) {

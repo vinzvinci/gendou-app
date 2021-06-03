@@ -9,13 +9,18 @@
 
 <script>
 import Vue from 'vue'
-import { mapState } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 
 export default Vue.extend({
   data() {
     return {
       creatorsAPY: '-', // NOTE: not use, now
       stakersAPY: '-',
+    }
+  },
+  fetch() {
+    if (process.client) {
+      this.generateReuqestState()
     }
   },
   computed: {
@@ -31,6 +36,11 @@ export default Vue.extend({
     ) {
       this.$store.dispatch('door/control', 'opened')
     }
+  },
+  methods: {
+    ...mapActions({
+      generateReuqestState: 'github/generateReuqestState',
+    }),
   },
 })
 </script>
