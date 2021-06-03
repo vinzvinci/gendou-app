@@ -12,6 +12,15 @@
       <p class="description display-5">
         Sorry you weren't on this Airdrop audience list.
       </p>
+      <p class="description">
+        Why?:
+        <a
+          ref="noopener noreferrer"
+          target="_blank"
+          href="//community.devprotocol.xyz/t/feedback-needed-a-new-formula-for-airdrop-and-some-updates/174"
+          >A new formula for airdrop and some updates</a
+        >
+      </p>
 
       <div class="button-wrapper">
         <a
@@ -79,6 +88,9 @@
     margin-bottom: 60px;
     line-height: 28px;
     text-align: center;
+    a {
+      text-decoration: underline;
+    }
   }
 
   .button-wrapper {
