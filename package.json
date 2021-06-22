@@ -25,7 +25,7 @@
     "@walletconnect/web3-provider": "1.4.1",
     "ant-design-vue": "1.7.5",
     "bignumber.js": "9.0.1",
-    "core-js": "3.15.0",
+    "core-js": "3.15.1",
     "nuxt": "2.15.7",
     "nuxt-client-init-module": "0.3.0",
     "uuid": "8.3.2",
