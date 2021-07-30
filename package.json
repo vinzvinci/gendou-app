@@ -19,7 +19,7 @@
     "*.{css,vue}": "stylelint"
   },
   "dependencies": {
-    "@devprotocol/dev-kit": "4.4.4",
+    "@devprotocol/dev-kit": "4.5.0",
     "@ethersproject/bignumber": "5.4.1",
     "@nuxtjs/axios": "5.13.6",
     "@walletconnect/web3-provider": "1.5.1",
