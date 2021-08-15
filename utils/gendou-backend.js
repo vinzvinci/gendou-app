@@ -1,5 +1,10 @@
 const { GET_GENDOU_API_URL } = process.env
 
+export const fetchAirdropReward = async (axios, address, sign) => {
+  const url = GET_GENDOU_API_URL + '/airdrop'
+  return await axios.post(url, { address, sign }).catch((err) => err)
+}
+
 // info API for v1/v2
 export const fetchPrizeInfo = async (axios, githubUserId) => {
   const url = GET_GENDOU_API_URL + `/info/${githubUserId}`
