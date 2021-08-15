@@ -18,7 +18,7 @@
           </p>
         </div>
         <div class="input-wrapper">
-          <InputGitHubId @startCallback="handleStart" />
+          <ConnectWalletWithAirdrop @open="handleStart" />
         </div>
         <div class="sponsored">
           <div class="pic"><img src="/image/pic01.png" alt="sindre" /></div>
@@ -78,7 +78,7 @@ export default Vue.extend({
       if (mutation.type !== 'door/toggle' || mutation.payload !== true) {
         return
       }
-      this.$router.push(`/result`)
+      this.$router.push(`/claim`)
     })
   },
   beforeDestroy() {
