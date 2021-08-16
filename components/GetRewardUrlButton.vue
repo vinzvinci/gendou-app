@@ -21,16 +21,17 @@ export default Vue.extend({
       type: Boolean,
       default: false,
     },
-    loading: {
-      type: Boolean,
-      default: false,
-    },
+  },
+  data() {
+    return { loading: false }
   },
   methods: {
     ...mapActions({
       fetchAirdropRewardInfo: 'claim/fetchAirdropRewardInfo',
     }),
     async sign() {
+      this.loading = true
+
       try {
         const provider = await this.$web3modal.connect()
         const web3 = new Web3(provider)
@@ -49,6 +50,8 @@ export default Vue.extend({
           error,
         })
       }
+
+      this.loading = false
     },
   },
 })

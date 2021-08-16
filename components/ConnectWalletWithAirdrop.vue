@@ -1,15 +1,16 @@
 <template>
-  <div v-if="isConnected">
+  <div v-if="isConnected && showRewardButton">
     <GetRewardUrlButton @onFinish="onFinish" />
   </div>
-  <div v-else>
+  <div v-else-if="!isConnected">
     <a-button
       type="default"
       class="button display-5"
+      :loading="loading"
       :disabled="disabled"
       @click="showModal"
     >
-      <span>Connect to a wallet</span>
+      Connect to a wallet
     </a-button>
   </div>
 </template>
@@ -28,6 +29,8 @@ export default Vue.extend({
   data() {
     return {
       isConnected: false,
+      loading: false,
+      showRewardButton: true,
     }
   },
   fetch() {
@@ -37,9 +40,13 @@ export default Vue.extend({
   fetchOnServer: false,
   methods: {
     async showModal() {
+      this.loading = true
+
       const provider = await this.$web3modal.connect()
       console.log('show web3modal', provider)
       this.isConnected = true
+
+      this.loading = false
     },
     ...mapMutations({
       setWalletConnected: 'claim/setWalletConnected',
@@ -49,6 +56,7 @@ export default Vue.extend({
         this.$message.error('fail fetch reward infomation')
         return
       }
+      this.showRewardButton = false
       this.$emit('open', true)
     },
   },
@@ -56,6 +64,22 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
+.button {
+  padding: 8px 24px;
+  height: initial;
+  color: #fff;
+  background-color: #0a0a0a;
+  line-height: 32px;
+  border-radius: 0;
+  border: none;
+  cursor: pointer;
+  &:hover,
+  &:focus {
+    border: none;
+    color: #fff;
+    background-color: #0a0a0a;
+  }
+}
 @media (max-width: 576px) {
   .button {
     padding: 10px 15px;
