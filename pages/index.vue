@@ -18,6 +18,10 @@
           </p>
         </div>
         <div class="input-wrapper">
+          <p>
+            Press the button below to see your Reward.<br />
+            Authenticate with Wallet
+          </p>
           <ConnectWalletWithAirdrop @open="handleStart" />
         </div>
         <div class="sponsored">
@@ -42,7 +46,11 @@
       <p>
         Dear all OSS developers, thank you for supporting the OSS ecosystem thus
         far. Dev Protocol will reward up to $2,100,000 to the most active GitHub
-        users as a tribute and thank you for all your efforts.
+        users as a tribute and thank you for all your efforts.<br />
+        <span style="color: #ff3815"
+          >The Airdrop application has already ended. Those who have not applied
+          before will not receive it</span
+        >
       </p>
       <div class="quote">
         <q
@@ -226,7 +234,14 @@ dd {
 }
 .input-wrapper {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  p {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    line-height: 1.4rem;
+    font-family: 'IBM Plex Mono', monospace;
+  }
 }
 .sponsored {
   display: flex;

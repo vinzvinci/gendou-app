@@ -1,8 +1,8 @@
 <template>
-  <div v-if="isConnected && showRewardButton">
+  <div v-if="isConnected && showRewardButton" style="text-align: center">
     <GetRewardUrlButton @onFinish="onFinish" />
   </div>
-  <div v-else-if="!isConnected">
+  <div v-else-if="!isConnected" style="text-align: center">
     <a-button
       type="default"
       class="button display-5"
