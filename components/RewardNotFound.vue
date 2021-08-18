@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="margin-bottom: 80px">
     <div class="result">
       <p class="message display-5">Oops...</p>
       <img src="/image/pic03.png" alt="" class="heart-black" />
@@ -13,13 +13,7 @@
         Sorry you weren't on this Airdrop audience list.
       </p>
       <p class="description">
-        Why?:
-        <a
-          ref="noopener noreferrer"
-          target="_blank"
-          href="//community.devprotocol.xyz/t/feedback-needed-a-new-formula-for-airdrop-and-some-updates/174"
-          >A new formula for airdrop and some updates</a
-        >
+        Please note that we do not accept inquiries related to Reward
       </p>
 
       <div class="button-wrapper">
