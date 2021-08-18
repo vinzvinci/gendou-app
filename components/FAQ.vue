@@ -19,8 +19,9 @@
       <dl>
         <dt>Campaign Period</dt>
         <dd>
-          Entry: June 3 - July 1, 23:59 UTC. [Scheduled]Review completion: July
-          31. [Scheduled]Claimable: August 20
+          Entry: June 3 - July 1, 23:59 UTC. <br />
+          Review completion: July 31. <br />
+          Claimable: August 20
           <p style="color: #ff3815">
             Rewards will be picked up by November 30th. You will not be able to
             receive it after the period
